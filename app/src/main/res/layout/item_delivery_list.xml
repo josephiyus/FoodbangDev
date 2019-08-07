@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="4dp"
+    android:layout_marginBottom="4dp"
+    android:background="@android:color/white"
+    android:id="@+id/rl_delivery_list">
+
+    <TextView
+        android:id="@+id/tv_status_order"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Status"
+        android:layout_marginLeft="@dimen/nav_header_vertical_spacing"
+        android:layout_marginStart="@dimen/nav_header_vertical_spacing"
+        android:padding="@dimen/nav_header_vertical_spacing"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:id="@+id/tv_order_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tanggal Order"
+        android:textStyle="bold"
+        android:padding="@dimen/nav_header_vertical_spacing"
+        android:layout_marginRight="@dimen/nav_header_vertical_spacing"
+        android:layout_marginEnd="@dimen/nav_header_vertical_spacing"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorLightGray"
+        android:layout_below="@+id/tv_status_order"/>
+
+    <TextView
+        android:id="@+id/tv_package_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Package Name"
+        android:textStyle="bold"
+        android:layout_below="@+id/divider"
+        android:layout_marginLeft="@dimen/nav_header_vertical_spacing"
+        android:layout_marginStart="@dimen/nav_header_vertical_spacing"
+        android:padding="@dimen/nav_header_vertical_spacing"/>
+
+    <TextView
+        android:id="@+id/tv_package_portion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Portion"
+        android:layout_below="@id/tv_package_name"
+        android:layout_marginLeft="@dimen/nav_header_vertical_spacing"
+        android:layout_marginStart="@dimen/nav_header_vertical_spacing"
+        android:padding="@dimen/nav_header_vertical_spacing"/>
+
+    <TextView
+        android:id="@+id/tv_total_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Price"
+        android:layout_below="@id/tv_package_portion"
+        android:layout_marginLeft="@dimen/nav_header_vertical_spacing"
+        android:layout_marginStart="@dimen/nav_header_vertical_spacing"
+        android:padding="@dimen/nav_header_vertical_spacing"/>
+
+</RelativeLayout>

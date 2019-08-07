@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OTPActivity"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="32dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/logo_red"
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/todo"/>
+
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp">
+
+        <TextView
+            android:id="@+id/tv_check_code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cek kode verifikasi yang kami kirim ke nomor HP kamu. Lalu login dengan kode OTP"
+            android:layout_marginBottom="64dp"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:id="@+id/tv_input_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Masukkan 6 digit OTP"
+            android:textStyle="bold"
+            android:textSize="@dimen/normal_text"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/tv_check_code" />
+
+        <com.chaos.view.PinView
+            android:id="@+id/pv_otp"
+            style="@style/PinWidget.PinView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:inputType="number"
+            android:padding="8dp"
+            android:textSize="16sp"
+            app:itemCount="6"
+            app:itemHeight="40dp"
+            app:itemWidth="40dp"
+            app:itemRadius="10dp"
+            app:lineColor="@android:color/darker_gray"
+            app:viewType="rectangle"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/tv_input_code"/>
+
+        <TextView
+            android:id="@+id/tv_status_otp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="@dimen/normal_text"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/pv_otp"
+            android:visibility="invisible" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:textSize="@dimen/normal_text"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/tv_status_otp"
+            android:id="@+id/btn_send_otp"
+            android:background="@drawable/btn_primary_effect"
+            android:textColor="@android:color/white"
+            android:textAllCaps="false"
+            android:layout_marginTop="64dp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:padding="@dimen/activity_vertical_margin">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/no_get_code"
+                android:textSize="@dimen/normal_text"/>
+            <TextView
+                android:id="@+id/tv_call_admin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/call_admin"
+                android:textSize="@dimen/normal_text"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary" />
+        </LinearLayout>
+
+    </RelativeLayout>
+    
+</LinearLayout>

@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Foodbang</string>
+    <string name="title_activity_navigation">NavigationActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_delivery_list">My Booking</string>
+    <string name="title_notifications">Notifications</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="todo">TODO</string>
+    <string name="welcome">Welcome</string>
+
+    <string name="welcome_screen_one">Bingung mau sedia makanan apa saat acara penting? Bingung pilih catering makanan? Mau rayain acara keluarga, pesta, wedding, ulang tahun dan acara ini itu. Gausah repot di Foodbang-in aja!</string>
+    <string name="welcome_screen_two">So, Foodbang! dapat membantu kamu cari dan pesan makanan lam paket kecil atau besar. Tapi tunggu dulu, sebelum pesan kamu juga bisa cobain fitur "Test Food" cuma di sini!</string>
+    <string name="welcome_screen_three">Hanya tinggal login pakai akun Foodbang! kamu. Ikuti tata caranya. Tunggu apa lagi, pilih catering kamu semudah pesan tiket online!</string>
+    <string name="check_order_data">Teliti kembali data pemesanan Anda sebelum lanjut ke proses pemesanan.</string>
+    <string name="wait_merchant_confirmation">Mohon tunggu konfirmasi merchant.\nMerchant akan mengkonfirmasi swlama 1 x 24 jam.</string>
+    <string name="order_requested">BERHASIL. Pesanan anda sedang dalam proses.</string>
+    <string name="term_condition">Dengan membuat akun, Kamu setuju dengan <b>Layanan, Kebijakan Privasi, Kebijkan Konten Foodbang</b></string>
+    <string name="text_register">Register</string>
+    <string name="already_have_account">Sudah punya akun?\u0020</string>
+    <string name="text_signin">Masuk</string>
+    <string name="hint_fullname">Nama Lengkap</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_nomor_telepon">Nomor Telepon</string>
+    <string name="no_get_code">Belum mendapatkan kode?\u0020</string>
+    <string name="call_admin">Hubungi Admin</string>
+    <string name="title_profile">Profile</string>
+</resources>

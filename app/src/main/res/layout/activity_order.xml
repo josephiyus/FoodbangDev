@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".OrderActivity">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btn_submit"
+        android:layout_alignParentTop="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@android:color/white">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@color/colorLightGray"
+                android:padding="@dimen/activity_vertical_margin">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Detail Pesanan"
+                    android:textColor="@android:color/black"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/activity_vertical_margin">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/et_selected_package"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Silver Package"
+                        android:textSize="12sp"
+                        android:textColor="@android:color/black"
+                        android:enabled="false"
+                        android:hint="Pilihan Package"
+                        android:textStyle="bold"/>
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/et_portion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:textColor="@android:color/black"
+                        android:hint="Jumlah Porsi"
+                        android:textStyle="bold"
+                        android:inputType="number"/>
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/et_ordering_location"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:inputType="textMultiLine|textCapWords"
+                        android:hint="Lokasi"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/black"/>
+
+                </android.support.design.widget.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/tv_select_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_rounded_gray_one"
+                    android:text="Pilih Tanggal"
+                    android:textSize="12sp"
+                    android:drawableLeft="@drawable/ic_date_range_black_24dp"
+                    android:drawableStart="@drawable/ic_date_range_black_24dp"
+                    android:drawablePadding="8dp"
+                    android:gravity="left|center"
+                    android:padding="4dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="8dp"/>
+
+                <TextView
+                    android:id="@+id/tv_select_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_rounded_gray_one"
+                    android:text="Tentukan Jam"
+                    android:textSize="12sp"
+                    android:drawableLeft="@drawable/ic_access_time_black_24dp"
+                    android:drawableStart="@drawable/ic_access_time_black_24dp"
+                    android:drawablePadding="8dp"
+                    android:gravity="left|center"
+                    android:padding="4dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/activity_vertical_margin"
+                android:background="@color/colorAccent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:lines="2"
+                    android:text="@string/wait_merchant_confirmation"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    android:textSize="10sp"
+                    android:drawableLeft="@drawable/ic_info_white_24dp"
+                    android:drawableStart="@drawable/ic_info_white_24dp"
+                    android:drawablePadding="8dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/activity_vertical_margin"
+                android:background="@color/colorLightGray">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Data Pemesan"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold"
+                    android:textSize="12sp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/activity_vertical_margin">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/et_ordering_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="example@gmail.com"
+                        android:hint="Email"
+                        android:textSize="12sp"
+                        android:textColor="@android:color/black"
+                        android:textStyle="bold"
+                        android:enabled="false"
+                        android:inputType="textEmailAddress"/>
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/et_ordering_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="081642433036"
+                        android:textColor="@android:color/black"
+                        android:textStyle="bold"
+                        android:hint="No. HP/Telepon"
+                        android:textSize="12sp"
+                        android:enabled="false"
+                        android:inputType="number"/>
+
+                </android.support.design.widget.TextInputLayout>
+
+                <Button
+                    android:id="@+id/btn_change"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:text="Ubah"
+                    android:textSize="14sp"
+                    android:textColor="@color/colorAccent"
+                    android:background="@drawable/ripple_effect_two"
+                    android:textAllCaps="false"
+                    android:layout_gravity="right"/>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/et_ordering_note"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:inputType="textMultiLine|textCapSentences"
+                        android:hint="Catatan"
+                        android:textSize="12sp"
+                        android:textColor="@android:color/black"
+                        android:textStyle="bold" />
+
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/activity_vertical_margin"
+                android:orientation="horizontal"
+                android:background="@color/colorLightGray"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_monetization_on_gold_24dp"
+                    android:drawableStart="@drawable/ic_monetization_on_gold_24dp"
+                    android:drawablePadding="8dp"
+                    android:text="Biaya"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:id="@+id/tv_cost"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center|right"
+                    android:text="Rp. 200.000"
+                    android:textColor="@android:color/black"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/activity_vertical_margin"
+                android:paddingRight="@dimen/activity_vertical_margin">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Subtotal"
+                    android:textStyle="bold"
+                    android:textSize="12sp"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"/>
+
+                <TextView
+                    android:id="@+id/tv_subtotal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:layout_alignParentRight="true"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"/>
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:background="@color/colorLightGray"/>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/activity_vertical_margin"
+                android:paddingRight="@dimen/activity_vertical_margin">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pajak 10%"
+                    android:textStyle="bold"
+                    android:textSize="12sp"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"/>
+
+                <TextView
+                    android:id="@+id/tv_tax"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:layout_alignParentRight="true"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"/>
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:background="@color/colorLightGray"/>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/activity_vertical_margin"
+                android:paddingRight="@dimen/activity_vertical_margin">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total"
+                    android:textStyle="bold"
+                    android:textSize="12sp"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"/>
+
+                <TextView
+                    android:id="@+id/tv_total"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:layout_alignParentRight="true"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"/>
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:background="@color/colorLightGray"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorAccent"
+                android:padding="@dimen/activity_vertical_margin">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_info_white_24dp"
+                    android:drawableLeft="@drawable/ic_info_white_24dp"
+                    android:drawablePadding="8dp"
+                    android:gravity="left|center"
+                    android:text="@string/check_order_data"
+                    android:textColor="@android:color/white"
+                    android:textSize="10sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+
+    <Button
+        android:id="@+id/btn_submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ripple_effect_three"
+        android:text="Submit"
+        android:textColor="@android:color/white"
+        android:textAllCaps="false"
+        android:layout_alignParentBottom="true"/>
+
+
+</RelativeLayout>

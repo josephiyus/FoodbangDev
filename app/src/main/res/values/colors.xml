@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#EA1D23</color>
+    <color name="colorPrimaryDark">#C51D20</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="colorAccent1">#FFA2A5</color>
+    <color name="colorAccent2">#FFE4E4</color>
+
+    <color name="colorLightGray">#fff3f3f3</color>
+    <color name="colorGray">#dddddd</color>
+    <color name="colorDarkGray">#a4a6aa</color>
+
+    <color name="success_tag">#39c6a4</color>
+    <color name="request_tag">#a4c639</color>
+</resources>

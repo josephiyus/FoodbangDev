@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.ProfileFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/nav_header_vertical_spacing">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_rounded_gray_one"
+            android:layout_marginBottom="@dimen/nav_header_vertical_spacing"
+            android:id="@+id/relativeLayout">
+
+            <ImageView
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:layout_gravity="center"
+                android:padding="16dp"
+                app:srcCompat="@drawable/ic_account_circle_black_24dp"
+                android:tint="@color/colorPrimary"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:id="@+id/img_profile" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Customer"
+                android:textAllCaps="true"
+                android:padding="4dp"
+                android:textSize="14sp"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@+id/img_profile"
+                android:layout_toEndOf="@+id/img_profile"
+                android:id="@+id/tv_customer_name"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email"
+                android:padding="4dp"
+                android:textSize="10sp"
+                android:id="@+id/tv_customer_email"
+                android:layout_below="@+id/tv_customer_name"
+                android:layout_toRightOf="@+id/img_profile"
+                android:layout_toEndOf="@+id/img_profile" />
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_below="@+id/relativeLayout"
+            android:background="@drawable/bg_rounded_gray_one"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nama"
+                android:textStyle="bold"
+                android:padding="4dp"
+                android:textSize="14sp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="nama"
+                android:padding="4dp"
+                android:id="@+id/tv_name"
+                android:textSize="12sp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email"
+                android:textStyle="bold"
+                android:padding="4dp"
+                android:textSize="14sp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="email"
+                android:padding="4dp"
+                android:id="@+id/tv_email"
+                android:textSize="12sp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nomor"
+                android:textStyle="bold"
+                android:padding="4dp"
+                android:textSize="14sp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="phone number"
+                android:padding="4dp"
+                android:id="@+id/tv_phone_number"
+                android:textSize="12sp"/>
+        </LinearLayout>
+        <!--<Button-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@drawable/bg_list_items"-->
+            <!--android:text="Edit Profile"-->
+            <!--android:textColor="@color/colorAccent2"-->
+            <!--android:textAllCaps="false"-->
+            <!--android:id="@+id/btn_editprof"-->
+            <!--android:layout_above="@+id/btn_signout"-->
+            <!--android:layout_alignParentLeft="true"-->
+            <!--android:layout_alignParentStart="true" />-->
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_primary_effect"
+            android:text="Logout"
+            android:textColor="@android:color/white"
+            android:textAllCaps="false"
+            android:id="@+id/btn_logout"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="@dimen/nav_header_vertical_spacing"/>
+    </RelativeLayout>
+
+
+</FrameLayout>
