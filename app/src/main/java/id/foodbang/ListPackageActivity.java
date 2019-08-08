@@ -52,7 +52,7 @@ public class ListPackageActivity extends FoodbangAppCompatActivity
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setTitle("List Packages");
         }
-        
+
         rvPackage.setHasFixedSize(true);
         rvPackage.setHorizontalScrollBarEnabled(false);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
