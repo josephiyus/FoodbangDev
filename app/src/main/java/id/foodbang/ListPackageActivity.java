@@ -77,12 +77,13 @@ public class ListPackageActivity extends FoodbangAppCompatActivity {
         });
 
         packageAdapter.notifyDataSetChanged();
-
+        final FoodbangAppCompatActivity parent = this;
         Button bt = findViewById(R.id.btn_filter);
         bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FilterDialog dialog = new FilterDialog();
+                dialog.setParent(parent);
                 dialog.show(getSupportFragmentManager(), "Filter Package List");
             }
         });

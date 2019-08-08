@@ -9,6 +9,7 @@ import id.foodbang.model.OrderListRequest;
 import id.foodbang.model.OrderRequest;
 import id.foodbang.model.OrderResponse;
 import id.foodbang.model.Package;
+import id.foodbang.model.PackageListRequest;
 import id.foodbang.model.PackageSearchParam;
 import id.foodbang.model.PackageSortParam;
 import id.foodbang.model.RegisterRequest;
@@ -16,6 +17,7 @@ import id.foodbang.model.RegisterResponse;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.HTTP;
 import retrofit2.http.Header;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
@@ -31,8 +33,9 @@ public interface UrlInterface {
     Call<Package> packages();
 
     @Headers("Content-Type:application/json")
-    @GET(UrlService.packages)
-    Call<Package> packagesByParam(@Path("search") PackageSearchParam searchKey, @Path("filter") PackageSortParam sortKey);
+    //@GET(UrlService.packages)
+    @HTTP(method = "GET", path = UrlService.packages, hasBody = true)
+    Call<Package> packagesByParam(@Body PackageListRequest searchKey);
 
     @Headers("Content-Type:application/json")
     @GET(UrlService._package)
