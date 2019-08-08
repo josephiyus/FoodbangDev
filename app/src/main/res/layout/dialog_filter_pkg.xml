@@ -158,7 +158,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Rp0"
+                android:text="Rp0,00"
                 android:textAlignment="textStart"
                 android:layout_gravity="start" />
 
@@ -167,7 +167,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Rp1000000"
+                android:text="Rp1.000.000,00"
                 android:layout_gravity="end"
                 android:textAlignment="textEnd" />
 
@@ -185,7 +185,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Rp0"
+            android:text="Rp0,00"
             android:textAlignment="center"
             android:paddingBottom="2dp" />
 
@@ -254,7 +254,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Rp0"
+                android:text="Rp0,00"
                 android:layout_gravity="start"
                 android:textAlignment="textStart" />
 
@@ -263,7 +263,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Rp1000000"
+                android:text="Rp1.000.000,00"
                 android:layout_gravity="end"
                 android:textAlignment="textEnd" />
 
@@ -272,7 +272,10 @@
         <SeekBar
             android:id="@+id/seekBarMinPortion"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:min="0"
+            android:max="1000000" />
+        />
 
         <TextView
             android:id="@+id/txt_minPortion"
