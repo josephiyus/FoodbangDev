@@ -3,7 +3,6 @@ package id.foodbang;
 import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.CoordinatorLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -29,7 +28,9 @@ import id.foodbang.model.PackageSortParam;
 import id.foodbang.utils.BottomNavigationBehavior;
 import retrofit2.Response;
 
-public class ListPackageActivity extends FoodbangAppCompatActivity {
+public class ListPackageActivity extends FoodbangAppCompatActivity
+{
+
     @BindView(R.id.bnv_filter_sort_pkg)
     BottomNavigationView bnvPackage;
 
@@ -46,9 +47,12 @@ public class ListPackageActivity extends FoodbangAppCompatActivity {
         setContentView(R.layout.activity_list_package);
         ButterKnife.bind(this);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("List Packages");
-
+        if(getSupportActionBar() != null)
+        {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setTitle("List Packages");
+        }
+        
         rvPackage.setHasFixedSize(true);
         rvPackage.setHorizontalScrollBarEnabled(false);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
@@ -58,6 +62,7 @@ public class ListPackageActivity extends FoodbangAppCompatActivity {
 
         AppController app = new AppController();
         app.getAllPackage(new RetrofitCallback() {
+
             @Override
             public void onResponse(Response<?> response) {
                 if(response.isSuccessful()){
@@ -71,7 +76,8 @@ public class ListPackageActivity extends FoodbangAppCompatActivity {
             }
 
             @Override
-            public void onFailure(String result) {
+            public void onFailure(String result)
+            {
                 Toast.makeText(getApplicationContext(), "Ups! Something Wrong!", Toast.LENGTH_SHORT).show();
             }
         });
@@ -107,30 +113,38 @@ public class ListPackageActivity extends FoodbangAppCompatActivity {
     }
 
     @Override
-    public void parentProcess(Map<String, Object> param) {
+    public void parentProcess(Map<String, Object> param)
+    {
         PackageSearchParam searchKey = null;
-        if(param.get("searchKey")!=null){
-            searchKey = (PackageSearchParam)param.get("searchKey");
+
+        if(param.get("searchKey") != null)
+        {
+            searchKey = (PackageSearchParam) param.get("searchKey");
         }
 
-        if(param.get("sortKey")!=null){
-            sortKey = (PackageSortParam)param.get("sortKey");
+        if(param.get("sortKey") != null)
+        {
+            sortKey = (PackageSortParam) param.get("sortKey");
         }
+
         packages = new ArrayList<>();
         final PackageAllAdapter packageAdapter = new PackageAllAdapter(this, packages);
         rvPackage.setAdapter(packageAdapter);
 
         AppController app = new AppController();
         app.getPackageByParameter(
-                new RetrofitCallback() {
+                new RetrofitCallback()
+                {
                     @Override
                     public void onResponse(Response<?> response) {
-                        if(response.isSuccessful()){
+                        if(response.isSuccessful())
+                        {
                             Package pack = (Package) response.body();
                             assert pack != null;
                             packages.addAll(pack.getData());
                             packageAdapter.notifyDataSetChanged();
-                        } else {
+                        }
+                        else {
                             Toast.makeText(getApplicationContext(), "Ups! Something Wrong!", Toast.LENGTH_SHORT).show();
                         }
                     }
