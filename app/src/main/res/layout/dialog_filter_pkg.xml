@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="@dimen/nav_header_vertical_spacing"
     android:orientation="vertical">
 
@@ -144,20 +143,52 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:showDividers="middle">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="2dp"
+            android:paddingRight="2dp">
+
+            <TextView
+                android:id="@+id/txt_mpricePortion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Rp0"
+                android:textAlignment="textStart"
+                android:layout_gravity="start" />
+
+            <TextView
+                android:id="@+id/txt_hpricePortion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Rp1000000"
+                android:layout_gravity="end"
+                android:textAlignment="textEnd" />
+
+        </LinearLayout>
+
+        <SeekBar
+            android:id="@+id/seekBarPricePortion"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:min="0"
+            android:max="1000000" />
 
         <TextView
             android:id="@+id/txt_pricePortion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Rp.0" />
+            android:text="Rp0"
+            android:textAlignment="center"
+            android:paddingBottom="2dp" />
 
-        <SeekBar
-            android:id="@+id/seekBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
     </LinearLayout>
 
     <LinearLayout
@@ -209,20 +240,50 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:showDividers="middle">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp">
+
+            <TextView
+                android:id="@+id/txt_mminPortion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Rp0"
+                android:layout_gravity="start"
+                android:textAlignment="textStart" />
+
+            <TextView
+                android:id="@+id/txt_hminPortion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Rp1000000"
+                android:layout_gravity="end"
+                android:textAlignment="textEnd" />
+
+        </LinearLayout>
+
+        <SeekBar
+            android:id="@+id/seekBarMinPortion"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
 
         <TextView
             android:id="@+id/txt_minPortion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Rp.0" />
+            android:text="Rp0"
+            android:textAlignment="center"
+            android:paddingBottom="2dp" />
 
-        <SeekBar
-            android:id="@+id/seekBarMinPortion"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
     </LinearLayout>
 
     <LinearLayout

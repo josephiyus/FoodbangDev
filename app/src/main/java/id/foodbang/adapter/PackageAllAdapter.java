@@ -27,7 +27,7 @@ import id.foodbang.utils.RoundedTransformation;
 import id.foodbang.utils.ThousandSeparator;
 
 public class PackageAllAdapter extends RecyclerView.Adapter<PackageAllAdapter.ViewHolder> {
-    private Context context;
+    private final Context context;
     private List<PackageData> packages;
 
     public PackageAllAdapter(Context context, List<PackageData> packages) {

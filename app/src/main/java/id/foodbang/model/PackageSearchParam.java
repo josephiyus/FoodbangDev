@@ -27,6 +27,10 @@ public class PackageSearchParam {
     @Expose
     private String status;
 
+    //@SerializedName("rating")
+    //@Expose
+    private String rating;
+
     public List<String> getPackage_category_id() {
         return package_category_id;
     }
@@ -65,5 +69,13 @@ public class PackageSearchParam {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getRating() {
+        return rating;
+    }
+
+    public void setRating(String rating) {
+        this.rating = rating;
     }
 }

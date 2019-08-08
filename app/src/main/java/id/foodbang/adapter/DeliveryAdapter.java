@@ -31,8 +31,8 @@ import retrofit2.Response;
 
 public class DeliveryAdapter extends RecyclerView.Adapter<DeliveryAdapter.ViewHolder> {
 
-    private Context context;
-    private List<OrderData> orderData;
+    private final Context context;
+    private final List<OrderData> orderData;
 
     public DeliveryAdapter(Context context, List<OrderData> orderData) {
         this.context = context;
@@ -53,7 +53,7 @@ public class DeliveryAdapter extends RecyclerView.Adapter<DeliveryAdapter.ViewHo
     public void onBindViewHolder(@NonNull final ViewHolder viewHolder, final int i) {
         setColorStatus(orderData.get(i).getBookedStatus(), viewHolder.tvStatusOrder);
         viewHolder.tvStatusOrder.setText(orderData.get(i).getBookedStatus().toUpperCase());
-        viewHolder.tvPackagePortion.setText(String.valueOf(orderData.get(i).getRequestOrderPortion()) + " porsi");
+        viewHolder.tvPackagePortion.setText(orderData.get(i).getRequestOrderPortion() + " porsi");
         String[] dateTime = getDateTime(orderData.get(i).getRequestOrderDate());
         viewHolder.tvOrderDate.setText(dateTime[0] + " " + dateTime[1]);
         viewHolder.tvTotalPrice.setText("Rp. " + ThousandSeparator.createCurrency(String.valueOf(orderData.get(i).getTotalPrice())));

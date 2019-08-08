@@ -33,6 +33,16 @@ public class MainActivity extends AppCompatActivity {
 
     ProgressDialog pDialog;
 
+    AppController app;
+
+    @Override
+    protected void onDestroy() {
+        if (this.app != null)
+            this.app = null;
+
+        super.onDestroy();
+    }
+
     @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ButterKnife.bind(this);
+
+        this.app = new AppController();
 
         pDialog = new ProgressDialog(getApplicationContext());
         pDialog.setTitle("Authenticating...");
@@ -61,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                 if(username.isEmpty() || password.isEmpty()){
                     Toast.makeText(getApplicationContext(), "Username/password kosong", Toast.LENGTH_SHORT).show();
                 }else {
-                    AppController app = new AppController();
+
                     app.login(new LoginBody(username, password), new RetrofitCallback() {
                         @Override
                         public void onResponse(Response<?> response) {

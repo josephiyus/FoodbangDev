@@ -13,7 +13,7 @@ public class LoginSession {
     public static final String OTP = "OTP";
     public static final String IS_LOGIN = "IS_LOGIN";
 
-    private Context context;
+    private final Context context;
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
 

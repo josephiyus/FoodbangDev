@@ -8,9 +8,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import id.foodbang.R;
+import id.foodbang.common.FoodbangAppCompatActivity;
+import id.foodbang.model.PackageSortParam;
 
 public class SortingDialog extends AppCompatDialogFragment {
+    private FoodbangAppCompatActivity parent;
+
+    public void setParent(FoodbangAppCompatActivity parent) {
+        this.parent = parent;
+    }
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -21,7 +31,14 @@ public class SortingDialog extends AppCompatDialogFragment {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //parent.printToast();
+                PackageSortParam packageSortParam = new PackageSortParam();
+                packageSortParam.setPrice("max");
+
+                Map<String, Object> param = new HashMap<>();
+                param.put("sortKey", packageSortParam);
+
+                parent.parentProcess(param);
+
                 dismiss();
             }
         });
@@ -30,7 +47,15 @@ public class SortingDialog extends AppCompatDialogFragment {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //parent.printToast();
+                PackageSortParam packageSortParam = new PackageSortParam();
+                packageSortParam.setPrice("min");
+
+                Map<String, Object> param = new HashMap<>();
+                param.put("sortKey", packageSortParam);
+
+                parent.parentProcess(param);
+
+                //parent.printToast()
                 dismiss();
             }
         });
@@ -39,6 +64,14 @@ public class SortingDialog extends AppCompatDialogFragment {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                PackageSortParam packageSortParam = new PackageSortParam();
+                packageSortParam.setRating("max");
+
+                Map<String, Object> param = new HashMap<>();
+                param.put("sortKey", packageSortParam);
+
+                parent.parentProcess(param);
+
                 //parent.printToast();
                 dismiss();
             }
@@ -48,6 +81,14 @@ public class SortingDialog extends AppCompatDialogFragment {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                PackageSortParam packageSortParam = new PackageSortParam();
+                packageSortParam.setRating("min");
+
+                Map<String, Object> param = new HashMap<>();
+                param.put("sortKey", packageSortParam);
+
+                parent.parentProcess(param);
+
                 //parent.printToast();
                 dismiss();
             }
@@ -57,6 +98,14 @@ public class SortingDialog extends AppCompatDialogFragment {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                PackageSortParam packageSortParam = new PackageSortParam();
+                packageSortParam.setPortion("near");
+
+                Map<String, Object> param = new HashMap<>();
+                param.put("sortKey", packageSortParam);
+
+                parent.parentProcess(param);
+
                 //parent.printToast();
                 dismiss();
             }

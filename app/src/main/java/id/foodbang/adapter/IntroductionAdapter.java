@@ -19,7 +19,7 @@ import butterknife.ButterKnife;
 import id.foodbang.R;
 
 public class IntroductionAdapter extends PagerAdapter {
-    private Context context;
+    private final Context context;
 
     @BindView(R.id.iv_intro)
     ImageView ivIntro;

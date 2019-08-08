@@ -82,7 +82,7 @@ public abstract class DrawableClickListener implements OnTouchListener
      *            <br />
      *            <i>use one of the values:
      *            <b>DrawableOnTouchListener.DRAWABLE_INDEX_*</b></i>
-     * @param fuzzOverride
+     * @param fuzz
      *            The number of pixels of &quot;fuzz&quot; that should be
      *            included to account for the size of a finger.
      */
@@ -158,7 +158,7 @@ public abstract class DrawableClickListener implements OnTouchListener
          * @param view
          *            The {@link TextView} that this
          *            {@link LeftDrawableClickListener} is associated with.
-         * @param fuzzOverride
+         * @param fuzz
          *            The number of pixels of &quot;fuzz&quot; that should be
          *            included to account for the size of a finger.
          */
@@ -176,10 +176,7 @@ public abstract class DrawableClickListener implements OnTouchListener
                 {
                     if ( y >= ( view.getPaddingTop() - fuzz ) )
                     {
-                        if ( y <= ( view.getHeight() - view.getPaddingBottom() + fuzz ) )
-                        {
-                            return true;
-                        }
+                        return y <= (view.getHeight() - view.getPaddingBottom() + fuzz);
                     }
                 }
             }
@@ -216,7 +213,7 @@ public abstract class DrawableClickListener implements OnTouchListener
          * @param view
          *            The {@link TextView} that this
          *            {@link TopDrawableClickListener} is associated with.
-         * @param fuzzOverride
+         * @param fuzz
          *            The number of pixels of &quot;fuzz&quot; that should be
          *            included to account for the size of a finger.
          */
@@ -234,10 +231,7 @@ public abstract class DrawableClickListener implements OnTouchListener
                 {
                     if ( y >= ( view.getPaddingTop() - fuzz ) )
                     {
-                        if ( y <= ( view.getPaddingTop() + drawableBounds.height() + fuzz ) )
-                        {
-                            return true;
-                        }
+                        return y <= (view.getPaddingTop() + drawableBounds.height() + fuzz);
                     }
                 }
             }
@@ -274,7 +268,7 @@ public abstract class DrawableClickListener implements OnTouchListener
          * @param view
          *            The {@link TextView} that this
          *            {@link RightDrawableClickListener} is associated with.
-         * @param fuzzOverride
+         * @param fuzz
          *            The number of pixels of &quot;fuzz&quot; that should be
          *            included to account for the size of a finger.
          */
@@ -292,10 +286,7 @@ public abstract class DrawableClickListener implements OnTouchListener
                 {
                     if ( y >= ( view.getPaddingTop() - fuzz ) )
                     {
-                        if ( y <= ( view.getHeight() - view.getPaddingBottom() + fuzz ) )
-                        {
-                            return true;
-                        }
+                        return y <= (view.getHeight() - view.getPaddingBottom() + fuzz);
                     }
                 }
             }
@@ -332,7 +323,7 @@ public abstract class DrawableClickListener implements OnTouchListener
          * @param view
          *            The {@link TextView} that this
          *            {@link BottomDrawableClickListener} is associated with.
-         * @param fuzzOverride
+         * @param fuzz
          *            The number of pixels of &quot;fuzz&quot; that should be
          *            included to account for the size of a finger.
          */
@@ -350,10 +341,7 @@ public abstract class DrawableClickListener implements OnTouchListener
                 {
                     if ( y >= ( view.getHeight() - view.getPaddingBottom() - drawableBounds.height() - fuzz ) )
                     {
-                        if ( y <= ( view.getHeight() - view.getPaddingBottom() + fuzz ) )
-                        {
-                            return true;
-                        }
+                        return y <= (view.getHeight() - view.getPaddingBottom() + fuzz);
                     }
                 }
             }

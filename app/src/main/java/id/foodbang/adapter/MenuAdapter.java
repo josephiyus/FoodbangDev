@@ -22,9 +22,9 @@ import id.foodbang.model.Menu;
 import id.foodbang.utils.RoundedTransformation;
 
 public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
-    private Context context;
-    private List<Menu> menus;
-    private boolean plain;
+    private final Context context;
+    private final List<Menu> menus;
+    private final Boolean plain;
 
     public MenuAdapter(Context context, List<Menu> menus, boolean plain) {
         this.context = context;

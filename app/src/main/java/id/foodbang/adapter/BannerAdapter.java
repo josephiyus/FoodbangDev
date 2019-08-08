@@ -19,8 +19,8 @@ import id.foodbang.R;
 import id.foodbang.model.BannerPromo;
 
 public class BannerAdapter extends PagerAdapter {
-    private Context context;
-    private List<BannerPromo> promos;
+    private final Context context;
+    private final List<BannerPromo> promos;
 
     @BindView(R.id.iv_banner) ImageView ivBanner;
 

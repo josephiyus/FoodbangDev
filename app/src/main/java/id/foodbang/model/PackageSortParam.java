@@ -12,6 +12,10 @@ public class PackageSortParam {
     @Expose
     private String portion;
 
+    @SerializedName("rating")
+    @Expose
+    private String rating;
+
     public String getPrice() {
         return price;
     }
@@ -26,5 +30,13 @@ public class PackageSortParam {
 
     public void setPortion(String portion) {
         this.portion = portion;
+    }
+
+    public String getRating() {
+        return rating;
+    }
+
+    public void setRating(String rating) {
+        this.rating = rating;
     }
 }

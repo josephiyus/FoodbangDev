@@ -46,9 +46,9 @@ public class HomeFragment extends Fragment {
     List<BannerPromo> promos;
     int cur_pos = 0;
 
-    Handler handler = new Handler();
+    final Handler handler = new Handler();
     Runnable runnable;
-    Timer timer = new Timer();
+    final Timer timer = new Timer();
 
     List<PackageData> packData = new ArrayList<>();
 

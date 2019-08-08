@@ -83,6 +83,7 @@ public class ListPackageActivity extends FoodbangAppCompatActivity
         });
 
         packageAdapter.notifyDataSetChanged();
+
         final FoodbangAppCompatActivity parent = this;
         Button bt = findViewById(R.id.btn_filter);
         bt.setOnClickListener(new View.OnClickListener() {
@@ -99,6 +100,7 @@ public class ListPackageActivity extends FoodbangAppCompatActivity
             @Override
             public void onClick(View view) {
                 SortingDialog dialog = new SortingDialog();
+                dialog.setParent(parent);
                 dialog.show(getSupportFragmentManager(), "Sorting Package List");
             }
         });
@@ -118,10 +120,12 @@ public class ListPackageActivity extends FoodbangAppCompatActivity
     {
         PackageSearchParam searchKey = null;
 
+        /*
         if(param.get("searchKey") != null)
         {
             searchKey = (PackageSearchParam) param.get("searchKey");
         }
+        */
 
         if(param.get("sortKey") != null)
         {
