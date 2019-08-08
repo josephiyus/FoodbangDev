@@ -137,6 +137,7 @@ public class FilterDialog extends AppCompatDialogFragment {
 
                 Map<String,Object> param = new HashMap<>();
                 param.put("searchKey", key);
+
                 parent.parentProcess(param);
                 dismiss();
             }

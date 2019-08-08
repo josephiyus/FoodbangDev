@@ -27,8 +27,8 @@ public class PackageSearchParam {
     @Expose
     private String status;
 
-    //@SerializedName("rating")
-    //@Expose
+    @SerializedName("rating")
+    @Expose
     private String rating;
 
     public List<String> getPackage_category_id() {
