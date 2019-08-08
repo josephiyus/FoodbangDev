@@ -13,6 +13,7 @@ import id.foodbang.model.OrderListRequest;
 import id.foodbang.model.OrderRequest;
 import id.foodbang.model.OrderResponse;
 import id.foodbang.model.Package;
+import id.foodbang.model.PackageListRequest;
 import id.foodbang.model.PackageSearchParam;
 import id.foodbang.model.PackageSortParam;
 import id.foodbang.model.RegisterRequest;
@@ -71,20 +72,24 @@ public class AppController {
 
     public void getPackageByParameter(final RetrofitCallback retrofitCallback, PackageSearchParam searchKey, PackageSortParam sortKey) {
 
-        final Call<Package> taskModelCall = getAPI().packagesByParam(searchKey, sortKey);
+        //final Call<Package> taskModelCall = getAPI().packagesByParam(searchKey, sortKey);
+        try {
+            final Call<Package> taskModelCall = getAPI().packagesByParam(new PackageListRequest(searchKey, sortKey));
 
-        taskModelCall.enqueue(new Callback<Package>() {
-            @Override
-            public void onResponse(Call<Package> call, Response<Package> response) {
-                retrofitCallback.onResponse(response);
+            taskModelCall.enqueue(new Callback<Package>() {
+                @Override
+                public void onResponse(Call<Package> call, Response<Package> response) {
+                    retrofitCallback.onResponse(response);
+                }
 
-            }
-
-            @Override
-            public void onFailure(Call<Package> call, Throwable t) {
-                retrofitCallback.onFailure(t.getMessage());
-            }
-        });
+                @Override
+                public void onFailure(Call<Package> call, Throwable t) {
+                    retrofitCallback.onFailure(t.getMessage());
+                }
+            });
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
     }
 
     public void getPackage(int id, final  RetrofitCallback retrofitCallback){
