@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -158,15 +159,31 @@ public class ListPackageActivity extends FoodbangAppCompatActivity
                         else {
                             Toast.makeText(getApplicationContext(), "Ups! Something Wrong!", Toast.LENGTH_SHORT).show();
                         }
+                        show_list_packages(packages);
                     }
 
                     @Override
                     public void onFailure(String result) {
                         Toast.makeText(getApplicationContext(), "Ups! Something Wrong!", Toast.LENGTH_SHORT).show();
+                        show_list_packages(packages);
                     }
                 },
                 searchKey,
                 sortKey
         );
     }
+
+    protected void show_list_packages(final List<PackageData> dtpackages) {
+        RecyclerView rv_delivery_list = findViewById(R.id.rv_package1);
+        TextView empty_text_view = findViewById(R.id.rv_empty_packages);
+
+        if (dtpackages.isEmpty()) {
+            rv_delivery_list.setVisibility(View.GONE);
+            empty_text_view.setVisibility(View.VISIBLE);
+        } else {
+            rv_delivery_list.setVisibility(View.VISIBLE);
+            empty_text_view.setVisibility(View.GONE);
+        }
+    }
+
 }

@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,19 +32,19 @@ public class DeliveryFragment extends Fragment {
     @BindView(R.id.rv_deliver_list)
     RecyclerView rvDeliveryList;
 
+    final List<OrderData> orderData = new ArrayList<>();
+
     public DeliveryFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_delivery, container, false);
+        final View view = inflater.inflate(R.layout.fragment_delivery, container, false);
         ButterKnife.bind(this, view);
 
-        final List<OrderData> orderData = new ArrayList<>();
         LoginSession loginSession = new LoginSession(getContext());
 
         rvDeliveryList.setHasFixedSize(true);
@@ -65,16 +66,31 @@ public class DeliveryFragment extends Fragment {
                     orderData.addAll(orderListRequest.getData());
 
                     deliveryAdapter.notifyDataSetChanged();
+
+                    show_list(view, orderData);
                 }
             }
 
             @Override
             public void onFailure(String result) {
-
+                show_list(view, orderData);
             }
         });
 
         return view;
+    }
+
+    protected void show_list(final View view, final List<OrderData> dtOrderData) {
+        RecyclerView rv_delivery_list = view.findViewById(R.id.rv_deliver_list);
+        TextView empty_text_view = view.findViewById(R.id.rv_empty_view);
+
+        if (dtOrderData.isEmpty()) {
+            rv_delivery_list.setVisibility(View.GONE);
+            empty_text_view.setVisibility(View.VISIBLE);
+        } else {
+            rv_delivery_list.setVisibility(View.VISIBLE);
+            empty_text_view.setVisibility(View.GONE);
+        }
     }
 
 }

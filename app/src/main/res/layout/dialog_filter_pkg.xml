@@ -151,8 +151,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:paddingLeft="2dp"
-            android:paddingRight="2dp">
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp">
 
             <TextView
                 android:id="@+id/txt_minPricePortion"
@@ -168,7 +168,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Rp1.000.000,00"
+                android:text="Rp15.000.000,00"
                 android:layout_gravity="end"
                 android:textAlignment="textEnd" />
 
@@ -178,8 +178,16 @@
             android:id="@+id/seekBarPricePortion"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            app:corner_radius="5"
             app:min_value="0"
-            app:max_value="1000000" />
+            app:max_value="15000000"
+            app:bar_color="#F1ADD8"
+            app:bar_highlight_color="#E74E9D"
+            app:left_thumb_color="#D81B60"
+            app:right_thumb_color="#D81B60"
+            app:left_thumb_color_pressed="#880E4F"
+            app:right_thumb_color_pressed="#880E4F"
+            app:data_type="_integer" />
 
     </LinearLayout>
 
@@ -202,14 +210,15 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_weight="1">
 
         <RatingBar
             android:id="@+id/ratingBar"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:minHeight="@dimen/small_text"
-            android:numStars="5"
-            android:layout_width="wrap_content" />
+            android:numStars="5" />
 
     </LinearLayout>
 
@@ -238,8 +247,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginLeft="2dp"
-            android:layout_marginRight="2dp">
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp">
 
             <TextView
                 android:id="@+id/txt_minPriceMinPortion"
@@ -255,7 +264,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Rp1.000.000,00"
+                android:text="Rp15.000.000,00"
                 android:layout_gravity="end"
                 android:textAlignment="textEnd" />
 
@@ -265,14 +274,23 @@
             android:id="@+id/seekBarMinPortion"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            app:corner_radius="5"
             app:min_value="0"
-            app:max_value="1000000" />
+            app:max_value="15000000"
+            app:bar_color="#F1ADD8"
+            app:bar_highlight_color="#E74E9D"
+            app:left_thumb_color="#D81B60"
+            app:right_thumb_color="#D81B60"
+            app:left_thumb_color_pressed="#880E4F"
+            app:right_thumb_color_pressed="#880E4F"
+            app:data_type="_integer" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp">
 
         <Button
             android:layout_width="0dp"
