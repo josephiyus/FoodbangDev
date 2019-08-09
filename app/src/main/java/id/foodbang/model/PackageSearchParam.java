@@ -23,6 +23,14 @@ public class PackageSearchParam {
     @Expose
     private String highest_price;
 
+    @SerializedName("lowest_price_minportion")
+    @Expose
+    private String lowest_price_minportion;
+
+    @SerializedName("highest_price_minportion")
+    @Expose
+    private String highest_price_minportion;
+
     @SerializedName("status")
     @Expose
     private String status;
@@ -77,5 +85,21 @@ public class PackageSearchParam {
 
     public void setRating(String rating) {
         this.rating = rating;
+    }
+
+    public String getLowest_price_minportion() {
+        return lowest_price_minportion;
+    }
+
+    public void setLowest_price_minportion(String lowest_price_minportion) {
+        this.lowest_price_minportion = lowest_price_minportion;
+    }
+
+    public String getHighest_price_minportion() {
+        return highest_price_minportion;
+    }
+
+    public void setHighest_price_minportion(String highest_price_minportion) {
+        this.highest_price_minportion = highest_price_minportion;
     }
 }

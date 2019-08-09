@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="@dimen/nav_header_vertical_spacing"
     android:orientation="vertical">
 
@@ -41,7 +42,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.1"
                     android:text="Catering Rekanan"
-                    android:textSize="10sp" />
+                    android:textSize="12sp" />
 
                 <CheckBox
                     android:id="@+id/cb5"
@@ -49,7 +50,7 @@
                     android:layout_height="43dp"
                     android:layout_weight="0.1"
                     android:text="Prasmanan Kantor / Rumah"
-                    android:textSize="10sp" />
+                    android:textSize="12sp" />
 
             </LinearLayout>
 
@@ -72,7 +73,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.1"
                     android:text="Snack Box"
-                    android:textSize="10sp" />
+                    android:textSize="12sp" />
 
             </LinearLayout>
 
@@ -87,7 +88,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.1"
                     android:text="Prasmanan Coffee Break"
-                    android:textSize="10sp" />
+                    android:textSize="12sp" />
 
                 <CheckBox
                     android:id="@+id/cb7"
@@ -95,7 +96,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.1"
                     android:text="Paket Buffet Wedding"
-                    android:textSize="10sp" />
+                    android:textSize="12sp" />
 
             </LinearLayout>
 
@@ -110,7 +111,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.1"
                     android:text="Gubukan"
-                    android:textSize="10sp" />
+                    android:textSize="12sp" />
 
                 <CheckBox
                     android:id="@+id/cb8"
@@ -118,7 +119,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.1"
                     android:text="Paket Bukber"
-                    android:textSize="10sp" />
+                    android:textSize="12sp" />
             </LinearLayout>
 
         </LinearLayout>
@@ -154,7 +155,7 @@
             android:paddingRight="2dp">
 
             <TextView
-                android:id="@+id/txt_mpricePortion"
+                android:id="@+id/txt_minPricePortion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -163,7 +164,7 @@
                 android:layout_gravity="start" />
 
             <TextView
-                android:id="@+id/txt_hpricePortion"
+                android:id="@+id/txt_maxPricePortion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -173,21 +174,12 @@
 
         </LinearLayout>
 
-        <SeekBar
+        <com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar
             android:id="@+id/seekBarPricePortion"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:min="0"
-            android:max="1000000" />
-
-        <TextView
-            android:id="@+id/txt_pricePortion"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Rp0,00"
-            android:textAlignment="center"
-            android:paddingBottom="2dp" />
+            app:min_value="0"
+            app:max_value="1000000" />
 
     </LinearLayout>
 
@@ -250,7 +242,7 @@
             android:layout_marginRight="2dp">
 
             <TextView
-                android:id="@+id/txt_mminPortion"
+                android:id="@+id/txt_minPriceMinPortion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -259,7 +251,7 @@
                 android:textAlignment="textStart" />
 
             <TextView
-                android:id="@+id/txt_hminPortion"
+                android:id="@+id/txt_maxPriceMinPortion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -269,22 +261,12 @@
 
         </LinearLayout>
 
-        <SeekBar
+        <com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar
             android:id="@+id/seekBarMinPortion"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:min="0"
-            android:max="1000000" />
-        />
-
-        <TextView
-            android:id="@+id/txt_minPortion"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Rp0"
-            android:textAlignment="center"
-            android:paddingBottom="2dp" />
+            app:min_value="0"
+            app:max_value="1000000" />
 
     </LinearLayout>
 

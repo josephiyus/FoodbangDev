@@ -40,6 +40,16 @@ public class ListPackageActivity extends FoodbangAppCompatActivity
     List<PackageData> packages = new ArrayList<>();
 
     private PackageSortParam sortKey;
+    private AppController app;
+
+    @Override
+    protected void onDestroy() {
+        if (this.packages != null) this.packages = null;
+        if (this.sortKey != null) this.sortKey = null;
+        if (this.app != null) this.app = null;
+
+        super.onDestroy();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,8 +57,9 @@ public class ListPackageActivity extends FoodbangAppCompatActivity
         setContentView(R.layout.activity_list_package);
         ButterKnife.bind(this);
 
-        if(getSupportActionBar() != null)
-        {
+        this.app = new AppController();
+
+        if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setTitle("List Packages");
         }
@@ -60,8 +71,7 @@ public class ListPackageActivity extends FoodbangAppCompatActivity
         final PackageAllAdapter packageAdapter = new PackageAllAdapter(this, packages);
         rvPackage.setAdapter(packageAdapter);
 
-        AppController app = new AppController();
-        app.getAllPackage(new RetrofitCallback() {
+        this.app.getAllPackage(new RetrofitCallback() {
 
             @Override
             public void onResponse(Response<?> response) {
@@ -76,8 +86,7 @@ public class ListPackageActivity extends FoodbangAppCompatActivity
             }
 
             @Override
-            public void onFailure(String result)
-            {
+            public void onFailure(String result) {
                 Toast.makeText(getApplicationContext(), "Ups! Something Wrong!", Toast.LENGTH_SHORT).show();
             }
         });
@@ -120,12 +129,10 @@ public class ListPackageActivity extends FoodbangAppCompatActivity
     {
         PackageSearchParam searchKey = null;
 
-        /*
         if(param.get("searchKey") != null)
         {
             searchKey = (PackageSearchParam) param.get("searchKey");
         }
-        */
 
         if(param.get("sortKey") != null)
         {
@@ -136,8 +143,7 @@ public class ListPackageActivity extends FoodbangAppCompatActivity
         final PackageAllAdapter packageAdapter = new PackageAllAdapter(this, packages);
         rvPackage.setAdapter(packageAdapter);
 
-        AppController app = new AppController();
-        app.getPackageByParameter(
+        this.app.getPackageByParameter(
                 new RetrofitCallback()
                 {
                     @Override

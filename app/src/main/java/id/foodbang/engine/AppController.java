@@ -1,7 +1,5 @@
 package id.foodbang.engine;
 
-import java.util.Map;
-
 import id.foodbang.engine.config.RetrofitSetting;
 import id.foodbang.engine.interfaces.RetrofitCallback;
 import id.foodbang.engine.interfaces.UrlInterface;
@@ -73,23 +71,23 @@ public class AppController {
     public void getPackageByParameter(final RetrofitCallback retrofitCallback, PackageSearchParam searchKey, PackageSortParam sortKey) {
 
         //final Call<Package> taskModelCall = getAPI().packagesByParam(searchKey, sortKey);
-        try {
-            final Call<Package> taskModelCall = getAPI().packagesByParam(new PackageListRequest(searchKey, sortKey));
+        //try {
+        final Call<Package> taskModelCall = getAPI().packagesByParam(new PackageListRequest(searchKey, sortKey));
 
-            taskModelCall.enqueue(new Callback<Package>() {
-                @Override
-                public void onResponse(Call<Package> call, Response<Package> response) {
-                    retrofitCallback.onResponse(response);
-                }
+        taskModelCall.enqueue(new Callback<Package>() {
+            @Override
+            public void onResponse(Call<Package> call, Response<Package> response) {
+                retrofitCallback.onResponse(response);
+            }
 
-                @Override
-                public void onFailure(Call<Package> call, Throwable t) {
-                    retrofitCallback.onFailure(t.getMessage());
-                }
-            });
-        }catch (Exception e){
+            @Override
+            public void onFailure(Call<Package> call, Throwable t) {
+                retrofitCallback.onFailure(t.getMessage());
+            }
+        });
+        /*}catch (Exception e){
             System.out.println(e.getMessage());
-        }
+        }*/
     }
 
     public void getPackage(int id, final  RetrofitCallback retrofitCallback){

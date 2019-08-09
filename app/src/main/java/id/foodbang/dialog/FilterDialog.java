@@ -10,8 +10,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.RatingBar;
-import android.widget.SeekBar;
 import android.widget.TextView;
+
+import com.crystal.crystalrangeseekbar.interfaces.OnRangeSeekbarChangeListener;
+import com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -28,13 +30,16 @@ public class FilterDialog extends AppCompatDialogFragment {
     private FoodbangAppCompatActivity parent;
     private List<String> packageId = new ArrayList<>();
     private Float ratingFilter;
-    private Integer pricePortionFilter;
-    private Integer minPricePortionFilter;
+
+    private Number minPricePortionFilter;
+    private Number maxPricePortionFilter;
+
+    private Number minPriceMinPortionFilter;
+    private Number maxPriceMinPortionFilter;
 
     public void setParent(FoodbangAppCompatActivity parent) {
         this.parent = parent;
     }
-
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -62,7 +67,7 @@ public class FilterDialog extends AppCompatDialogFragment {
             applyCheckboxValue(view, key, ch);
         }
 
-        RatingBar ratingBar = view.findViewById(R.id.ratingBar);
+        final RatingBar ratingBar = view.findViewById(R.id.ratingBar);
         ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
@@ -73,57 +78,43 @@ public class FilterDialog extends AppCompatDialogFragment {
             }
         });
 
-        SeekBar seekBarPricePortion = view.findViewById(R.id.seekBarPricePortion);
-        seekBarPricePortion.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        final CrystalRangeSeekbar seekBarPricePortion = view.findViewById(R.id.seekBarPricePortion);
+        seekBarPricePortion.setOnRangeSeekbarChangeListener(new OnRangeSeekbarChangeListener() {
             @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                if (fromUser) {
-                    TextView pricePortion = view.findViewById(R.id.txt_pricePortion);
+            public void valueChanged(Number minValue, Number maxValue) {
+                TextView minPricePortion = view.findViewById(R.id.txt_minPricePortion);
+                TextView maxPricePortion = view.findViewById(R.id.txt_maxPricePortion);
 
-                    DecimalFormat rupiahFormat = RupiahFormat.getInstance();
-                    pricePortion.setText(rupiahFormat.format(progress));
+                DecimalFormat rupiahFormat = RupiahFormat.getInstance();
 
-                    pricePortionFilter = progress;
-                }
-            }
+                minPricePortion.setText(rupiahFormat.format(minValue));
+                maxPricePortion.setText(rupiahFormat.format(maxValue));
 
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
+                minPricePortionFilter = minValue;
+                maxPricePortionFilter = maxValue;
             }
         });
 
-        SeekBar seekBarMinPortion = view.findViewById(R.id.seekBarMinPortion);
-        seekBarMinPortion.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+
+        final CrystalRangeSeekbar seekBarMinPortion = view.findViewById(R.id.seekBarMinPortion);
+        seekBarMinPortion.setOnRangeSeekbarChangeListener(new OnRangeSeekbarChangeListener() {
             @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                if (fromUser) {
-                    TextView priceMinPortion = view.findViewById(R.id.txt_minPortion);
+            public void valueChanged(Number minValue, Number maxValue) {
+                TextView minPriceMinPortion = view.findViewById(R.id.txt_minPriceMinPortion);
+                TextView maxPriceMinPortion = view.findViewById(R.id.txt_maxPriceMinPortion);
 
-                    DecimalFormat rupiahFormat = RupiahFormat.getInstance();
-                    priceMinPortion.setText(rupiahFormat.format(progress));
+                DecimalFormat rupiahFormat = RupiahFormat.getInstance();
 
-                    minPricePortionFilter = progress;
-                }
-            }
+                minPriceMinPortion.setText(rupiahFormat.format(minValue));
+                maxPriceMinPortion.setText(rupiahFormat.format(maxValue));
 
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
+                minPriceMinPortionFilter = minValue;
+                maxPriceMinPortionFilter = maxValue;
             }
         });
 
-        Button btn = view.findViewById(R.id.btn_done);
+
+        final Button btn = view.findViewById(R.id.btn_done);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -131,7 +122,17 @@ public class FilterDialog extends AppCompatDialogFragment {
 
                 key.setPackage_category_id(packageId);
                 if (ratingFilter != null) key.setRating(ratingFilter.toString());
-                if (pricePortionFilter != null) key.setHighest_price(pricePortionFilter.toString());
+
+                if (minPricePortionFilter != null)
+                    key.setLowest_price(minPricePortionFilter.toString());
+                if (maxPricePortionFilter != null)
+                    key.setHighest_price(maxPricePortionFilter.toString());
+
+                if (minPriceMinPortionFilter != null)
+                    key.setLowest_price_minportion(minPriceMinPortionFilter.toString());
+                if (maxPriceMinPortionFilter != null)
+                    key.setHighest_price_minportion(maxPriceMinPortionFilter.toString());
+
                 if (minPricePortionFilter != null)
                     key.setLowest_price(minPricePortionFilter.toString());
 
@@ -142,6 +143,7 @@ public class FilterDialog extends AppCompatDialogFragment {
                 dismiss();
             }
         });
+
         builder.setView(view);
         return builder.create();
     }
