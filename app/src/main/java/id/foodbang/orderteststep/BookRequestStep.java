@@ -1,4 +1,4 @@
-package id.foodbang.orderstep;
+package id.foodbang.orderteststep;
 
 import android.content.Context;
 import android.os.Parcelable;
@@ -28,8 +28,8 @@ public class BookRequestStep extends LinearLayout {
     }
 
     private void initialize(Context context) {
-        setClipChildren( true );
-        setOrientation( VERTICAL );
+        setClipChildren(true);
+        setOrientation(VERTICAL);
 
         LayoutInflater.from(context).inflate(R.layout.step_ordertest_main, this, true);
     }
@@ -37,13 +37,13 @@ public class BookRequestStep extends LinearLayout {
     @Nullable
     @Override
     protected Parcelable onSaveInstanceState() {
-        Log.wtf( "FOODBANG", "Saving state" );
+        Log.wtf("FOODBANG", "Saving state");
         return super.onSaveInstanceState();
     }
 
     @Override
     protected void onRestoreInstanceState(Parcelable state) {
-        Log.wtf( "FOODBANG", "Restoring state" );
+        Log.wtf("FOODBANG", "Restoring state");
         super.onRestoreInstanceState(state);
     }
 }

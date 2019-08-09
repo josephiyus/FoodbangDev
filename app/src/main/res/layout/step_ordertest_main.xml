@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="#a3a3a3">
+
+        <EditText
+            android:id="@+id/input"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:hint="Test State" />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        android:padding="@dimen/nav_header_vertical_spacing">
+
+        <Button
+            android:id="@+id/btn_next_step"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="4dp"
+            android:layout_marginEnd="4dp"
+            android:text="Kembali"
+            android:textAllCaps="false"
+            android:textSize="12sp"
+            android:textColor="@android:color/white"
+            android:padding="@dimen/nav_header_vertical_spacing"
+            android:background="@drawable/ripple_effect_three" />
+
+        <Button
+            android:id="@+id/btn_prev_step"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_marginStart="4dp"
+            android:text="Selanjutnya"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"
+            android:textAllCaps="false"
+            android:padding="@dimen/nav_header_vertical_spacing"
+            android:background="@drawable/ripple_effect_four" />
+
+    </LinearLayout>
+
+</merge>

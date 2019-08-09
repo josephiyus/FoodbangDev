@@ -26,11 +26,10 @@ import id.foodbang.engine.interfaces.RetrofitCallback;
 import id.foodbang.model.DetailPackage;
 import id.foodbang.model.OrderData;
 import id.foodbang.model.PackageData;
-import id.foodbang.utils.ThousandSeparator;
+import id.foodbang.utils.RupiahFormat;
 import retrofit2.Response;
 
 public class DeliveryAdapter extends RecyclerView.Adapter<DeliveryAdapter.ViewHolder> {
-
     private final Context context;
     private final List<OrderData> orderData;
 
@@ -50,13 +49,16 @@ public class DeliveryAdapter extends RecyclerView.Adapter<DeliveryAdapter.ViewHo
 
     @SuppressLint("SetTextI18n")
     @Override
-    public void onBindViewHolder(@NonNull final ViewHolder viewHolder, final int i) {
+    public void onBindViewHolder(@NonNull final ViewHolder viewHolder, int idx) {
+        final int i = viewHolder.getAdapterPosition();
+
         setColorStatus(orderData.get(i).getBookedStatus(), viewHolder.tvStatusOrder);
+
         viewHolder.tvStatusOrder.setText(orderData.get(i).getBookedStatus().toUpperCase());
         viewHolder.tvPackagePortion.setText(orderData.get(i).getRequestOrderPortion() + " porsi");
         String[] dateTime = getDateTime(orderData.get(i).getRequestOrderDate());
         viewHolder.tvOrderDate.setText(dateTime[0] + " " + dateTime[1]);
-        viewHolder.tvTotalPrice.setText("Rp. " + ThousandSeparator.createCurrency(String.valueOf(orderData.get(i).getTotalPrice())));
+        viewHolder.tvTotalPrice.setText(RupiahFormat.getInstance().format(orderData.get(i).getTotalPrice()));
 
         AppController app = new AppController();
         app.getPackage(orderData.get(i).getPackageId(), new RetrofitCallback() {

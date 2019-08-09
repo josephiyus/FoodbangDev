@@ -7,7 +7,7 @@ import com.liefery.android.vertical_stepper_view.VerticalStepperView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import id.foodbang.adapter.MainStepperAdapter;
+import id.foodbang.adapter.OrderStepAdapter;
 
 public class DeliveryActivity extends AppCompatActivity {
 
@@ -23,7 +23,7 @@ public class DeliveryActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Progress Status");
 
-        stepperOrder.setStepperAdapter(new MainStepperAdapter(this));
+        stepperOrder.setStepperAdapter(new OrderStepAdapter(this));
 
     }
 
