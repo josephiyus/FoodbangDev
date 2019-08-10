@@ -11,6 +11,10 @@ public class PackageSearchParam {
     @Expose
     private List<String> package_category_id;
 
+    @SerializedName("package_location_id")
+    @Expose
+    private List<String> package_location_id;
+
     @SerializedName("name")
     @Expose
     private String name;
@@ -101,5 +105,13 @@ public class PackageSearchParam {
 
     public void setHighest_price_minportion(String highest_price_minportion) {
         this.highest_price_minportion = highest_price_minportion;
+    }
+
+    public List<String> getPackage_location_id() {
+        return package_location_id;
+    }
+
+    public void setPackage_location_id(List<String> package_location_id) {
+        this.package_location_id = package_location_id;
     }
 }

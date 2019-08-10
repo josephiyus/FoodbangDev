@@ -1,321 +1,419 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="@dimen/nav_header_vertical_spacing"
-    android:orientation="vertical">
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:padding="@dimen/nav_header_vertical_spacing"
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/category"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.45"
-            android:padding="@dimen/normal_text"
-            android:text="Category"
-            android:textStyle="bold" />
+            android:orientation="horizontal">
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/category"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.45"
+                android:padding="@dimen/normal_text"
+                android:text="Category"
+                android:textStyle="bold" />
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="138dp">
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="138dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/cb1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.1"
+                        android:text="Catering Rekanan"
+                        android:textSize="12sp" />
+
+                    <CheckBox
+                        android:id="@+id/cb5"
+                        android:layout_width="0dp"
+                        android:layout_height="43dp"
+                        android:layout_weight="0.1"
+                        android:text="Prasmanan Kantor / Rumah"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/cb2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.1"
+                        android:text="Nasi Box"
+                        android:textSize="10sp" />
+
+                    <CheckBox
+                        android:id="@+id/cb6"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.1"
+                        android:text="Snack Box"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/cb3"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.1"
+                        android:text="Prasmanan Coffee Break"
+                        android:textSize="12sp" />
+
+                    <CheckBox
+                        android:id="@+id/cb7"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.1"
+                        android:text="Paket Buffet Wedding"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/cb4"
+                        android:layout_width="1dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.1"
+                        android:text="Gubukan"
+                        android:textSize="12sp" />
+
+                    <CheckBox
+                        android:id="@+id/cb8"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.1"
+                        android:text="Paket Bukber"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/category2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="@dimen/normal_text"
+                android:text="Price Per Portion"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:showDividers="middle">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp">
+
+                <TextView
+                    android:id="@+id/txt_minPricePortion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Rp0,00"
+                    android:textAlignment="textStart"
+                    android:layout_gravity="start" />
+
+                <TextView
+                    android:id="@+id/txt_maxPricePortion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Rp15.000.000,00"
+                    android:layout_gravity="end"
+                    android:textAlignment="textEnd" />
+
+            </LinearLayout>
+
+            <com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar
+                android:id="@+id/seekBarPricePortion"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                app:corner_radius="5"
+                app:min_value="0"
+                app:max_value="15000000"
+                app:bar_color="#F1ADD8"
+                app:bar_highlight_color="#E74E9D"
+                app:left_thumb_color="#D81B60"
+                app:right_thumb_color="#D81B60"
+                app:left_thumb_color_pressed="#880E4F"
+                app:right_thumb_color_pressed="#880E4F"
+                app:data_type="_integer" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/rating"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.45"
+                android:padding="@dimen/normal_text"
+                android:text="Rating"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_weight="1">
+
+            <RatingBar
+                android:id="@+id/ratingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/minimalPortion"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="@dimen/normal_text"
+                android:text="Minimal Portion"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:showDividers="middle">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp">
+
+                <TextView
+                    android:id="@+id/txt_minPriceMinPortion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Rp0,00"
+                    android:layout_gravity="start"
+                    android:textAlignment="textStart" />
+
+                <TextView
+                    android:id="@+id/txt_maxPriceMinPortion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Rp15.000.000,00"
+                    android:layout_gravity="end"
+                    android:textAlignment="textEnd" />
+
+            </LinearLayout>
+
+            <com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar
+                android:id="@+id/seekBarMinPortion"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                app:corner_radius="5"
+                app:min_value="0"
+                app:max_value="15000000"
+                app:bar_color="#F1ADD8"
+                app:bar_highlight_color="#E74E9D"
+                app:left_thumb_color="#D81B60"
+                app:right_thumb_color="#D81B60"
+                app:left_thumb_color_pressed="#880E4F"
+                app:right_thumb_color_pressed="#880E4F"
+                app:data_type="_integer" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/title_lokasi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:padding="@dimen/normal_text"
+                android:text="Lokasi"
+                android:textStyle="bold" />
 
-                <CheckBox
-                    android:id="@+id/cb1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.1"
-                    android:text="Catering Rekanan"
-                    android:textSize="12sp" />
-
-                <CheckBox
-                    android:id="@+id/cb5"
-                    android:layout_width="0dp"
-                    android:layout_height="43dp"
-                    android:layout_weight="0.1"
-                    android:text="Prasmanan Kantor / Rumah"
-                    android:textSize="12sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
+            <CheckBox
+                android:id="@+id/loc1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:text="Jakarta Pusat"
+                android:textSize="12sp" />
 
-                <CheckBox
-                    android:id="@+id/cb2"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.1"
-                    android:text="Nasi Box"
-                    android:textSize="10sp" />
-
-                <CheckBox
-                    android:id="@+id/cb6"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.1"
-                    android:text="Snack Box"
-                    android:textSize="12sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
+            <CheckBox
+                android:id="@+id/loc2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:text="Jakarta Selatan"
+                android:textSize="12sp" />
 
-                <CheckBox
-                    android:id="@+id/cb3"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.1"
-                    android:text="Prasmanan Coffee Break"
-                    android:textSize="12sp" />
-
-                <CheckBox
-                    android:id="@+id/cb7"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.1"
-                    android:text="Paket Buffet Wedding"
-                    android:textSize="12sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
+            <CheckBox
+                android:id="@+id/loc3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:text="Jakarta Barat"
+                android:textSize="12sp" />
 
-                <CheckBox
-                    android:id="@+id/cb4"
-                    android:layout_width="1dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.1"
-                    android:text="Gubukan"
-                    android:textSize="12sp" />
+            <CheckBox
+                android:id="@+id/loc4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Jakarta Timur"
+                android:textSize="12sp" />
 
-                <CheckBox
-                    android:id="@+id/cb8"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.1"
-                    android:text="Paket Bukber"
-                    android:textSize="12sp" />
-            </LinearLayout>
+            <CheckBox
+                android:id="@+id/loc5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Jakarta Utara"
+                android:textSize="12sp" />
+
+            <CheckBox
+                android:id="@+id/loc6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Serpong"
+                android:textSize="12sp" />
+
+            <CheckBox
+                android:id="@+id/loc7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Depok"
+                android:textSize="12sp" />
+
+            <CheckBox
+                android:id="@+id/loc8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bekasi"
+                android:textSize="12sp" />
+
+            <CheckBox
+                android:id="@+id/loc9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bogor"
+                android:textSize="12sp" />
+
+            <CheckBox
+                android:id="@+id/loc10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tangerang"
+                android:textSize="12sp" />
+
+            <CheckBox
+                android:id="@+id/loc11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Lainnya"
+                android:textSize="12sp" />
 
         </LinearLayout>
-    </ScrollView>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal" >
-
-        <TextView
-            android:id="@+id/category2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:padding="@dimen/normal_text"
-            android:text="Price Per Portion"
-            android:textStyle="bold" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:showDividers="middle">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingLeft="8dp"
-            android:paddingRight="8dp">
+            android:layout_marginTop="12dp">
 
-            <TextView
-                android:id="@+id/txt_minPricePortion"
-                android:layout_width="match_parent"
+            <Button
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Rp0,00"
-                android:textAlignment="textStart"
-                android:layout_gravity="start" />
+                android:background="@drawable/btn_reverse_effect"
+                android:text="Reset"
+                android:textColor="@color/colorPrimary"
+                android:textAllCaps="false"
+                android:id="@+id/btn_reset"
+                android:layout_marginRight="4dp"
+                android:layout_marginEnd="4dp" />
 
-            <TextView
-                android:id="@+id/txt_maxPricePortion"
-                android:layout_width="match_parent"
+            <Button
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Rp15.000.000,00"
-                android:layout_gravity="end"
-                android:textAlignment="textEnd" />
+                android:background="@drawable/btn_primary_effect"
+                android:text="Done"
+                android:textColor="@android:color/white"
+                android:textAllCaps="false"
+                android:id="@+id/btn_done"
+                android:layout_marginLeft="4dp"
+                android:layout_marginStart="4dp" />
 
         </LinearLayout>
 
-        <com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar
-            android:id="@+id/seekBarPricePortion"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            app:corner_radius="5"
-            app:min_value="0"
-            app:max_value="15000000"
-            app:bar_color="#F1ADD8"
-            app:bar_highlight_color="#E74E9D"
-            app:left_thumb_color="#D81B60"
-            app:right_thumb_color="#D81B60"
-            app:left_thumb_color_pressed="#880E4F"
-            app:right_thumb_color_pressed="#880E4F"
-            app:data_type="_integer" />
-
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal" >
-
-        <TextView
-            android:id="@+id/rating"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.45"
-            android:padding="@dimen/normal_text"
-            android:text="Rating"
-            android:textStyle="bold" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_weight="1">
-
-        <RatingBar
-            android:id="@+id/ratingBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:numStars="5" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal" >
-
-        <TextView
-            android:id="@+id/minimalPortion"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:padding="@dimen/normal_text"
-            android:text="Minimal Portion"
-            android:textStyle="bold" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:showDividers="middle">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp">
-
-            <TextView
-                android:id="@+id/txt_minPriceMinPortion"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Rp0,00"
-                android:layout_gravity="start"
-                android:textAlignment="textStart" />
-
-            <TextView
-                android:id="@+id/txt_maxPriceMinPortion"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Rp15.000.000,00"
-                android:layout_gravity="end"
-                android:textAlignment="textEnd" />
-
-        </LinearLayout>
-
-        <com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar
-            android:id="@+id/seekBarMinPortion"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            app:corner_radius="5"
-            app:min_value="0"
-            app:max_value="15000000"
-            app:bar_color="#F1ADD8"
-            app:bar_highlight_color="#E74E9D"
-            app:left_thumb_color="#D81B60"
-            app:right_thumb_color="#D81B60"
-            app:left_thumb_color_pressed="#880E4F"
-            app:right_thumb_color_pressed="#880E4F"
-            app:data_type="_integer" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp">
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/btn_reverse_effect"
-            android:text="Reset"
-            android:textColor="@color/colorPrimary"
-            android:textAllCaps="false"
-            android:id="@+id/btn_reset"
-            android:layout_marginRight="4dp"
-            android:layout_marginEnd="4dp" />
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/btn_primary_effect"
-            android:text="Done"
-            android:textColor="@android:color/white"
-            android:textAllCaps="false"
-            android:id="@+id/btn_done"
-            android:layout_marginLeft="4dp"
-            android:layout_marginStart="4dp" />
-
-    </LinearLayout>
-
-</LinearLayout>
+</ScrollView>
