@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.LinearLayout;
 
 import id.foodbang.R;
@@ -31,7 +32,7 @@ public class BookRequestStep extends LinearLayout {
         setClipChildren(true);
         setOrientation(VERTICAL);
 
-        LayoutInflater.from(context).inflate(R.layout.step_ordertest_main, this, true);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.step_order_main, this, true);
     }
 
     @Nullable

@@ -12,6 +12,13 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RetrofitSetting extends MultiDexApplication {
     private static OkHttpClient okHttpClient = UnsafeOkHttpClient.getUnsafeOkHttpClient();
 
+    // Safe OkHttpClient
+    public OkHttpClient getOkHttpClient() {
+        synchronized (RetrofitSetting.class) {
+            return okHttpClient;
+        }
+    }
+
     @Override
     public void onCreate() {
         super.onCreate();

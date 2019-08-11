@@ -81,8 +81,15 @@ public class DeliveryAdapter extends RecyclerView.Adapter<DeliveryAdapter.ViewHo
         viewHolder.rlDeliveryList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!orderData.get(i).getBookedStatus().equals("rejected"))
-                    context.startActivity(new Intent(context, DeliveryActivity.class));
+                OrderData itemOrderData = DeliveryAdapter.this.orderData.get(i);
+
+                if (!itemOrderData.getBookedStatus().equals("rejected")) {
+                    Intent intent_vbook = new Intent(context, DeliveryActivity.class);
+
+                    //intent_vbook.putExtra("order_data", itemOrderData);
+
+                    context.startActivity(intent_vbook);
+                }
             }
         });
     }
@@ -92,32 +99,38 @@ public class DeliveryAdapter extends RecyclerView.Adapter<DeliveryAdapter.ViewHo
         return orderData.size();
     }
 
-    private void setColorStatus(String status, TextView view){
-        switch (status){
+    private void setColorStatus(String status, TextView view) {
+        switch (status) {
             case "requested":
                 view.setTextColor(context.getResources().getColor(R.color.success_tag));
                 break;
+
             case "approved":
                 view.setTextColor(context.getResources().getColor(R.color.request_tag));
                 break;
+
             case "rejected":
                 view.setTextColor(context.getResources().getColor(R.color.colorPrimary));
                 break;
         }
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder{
-
+    class ViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.tv_status_order)
         TextView tvStatusOrder;
+
         @BindView(R.id.tv_package_name)
         TextView tvPackageName;
+
         @BindView(R.id.tv_package_portion)
         TextView tvPackagePortion;
+
         @BindView(R.id.tv_order_date)
         TextView tvOrderDate;
+
         @BindView(R.id.tv_total_price)
         TextView tvTotalPrice;
+
         @BindView(R.id.rl_delivery_list)
         RelativeLayout rlDeliveryList;
 
@@ -139,9 +152,8 @@ public class DeliveryAdapter extends RecyclerView.Adapter<DeliveryAdapter.ViewHo
 
         DateFormat formatDate = new SimpleDateFormat("EEE, d MMM yyyy"); //If you need time just put specific format for time like 'HH:mm:ss'
         DateFormat formatTime = new SimpleDateFormat("HH:mm");
-        String[] date_time = {formatDate.format(date), formatTime.format(date)};
 
-        return date_time;
+        return new String[]{formatDate.format(date), formatTime.format(date)};
     }
 
 }

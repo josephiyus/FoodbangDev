@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import java.io.IOException;
 import java.util.Calendar;
 
 import butterknife.BindView;
@@ -176,14 +177,29 @@ public class OrderActivity extends AppCompatActivity
                                             finish();
                                         }
                                     } else {
-                                        Toast.makeText(getApplicationContext(), "Ups! Something Wrong!", Toast.LENGTH_SHORT).show();
+                                        String message;
+                                        try {
+                                            message = new String(response.errorBody().bytes());
+
+                                            Toast mtoast = Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG);
+                                            mtoast.setGravity(Gravity.CENTER, 0, 0);
+
+                                            TextView message_mtoast = mtoast.getView().findViewById(android.R.id.message);
+                                            message_mtoast.setTextSize(19);
+
+                                            mtoast.show();
+                                        } catch (IOException | NullPointerException e) {
+                                            e.printStackTrace();
+
+                                            message = "Ups! Something Wrong!";
+                                            Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+                                        }
                                     }
                                 }
 
                                 @Override
                                 public void onFailure(String result) {
-                                    if(result == null || result.isEmpty()) result = "Ups! Something Wrong!";
-                                    Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG).show();
+                                    Toast.makeText(getApplicationContext(), "Ups! Something Wrong!", Toast.LENGTH_LONG).show();
                                 }
                             });
                         }

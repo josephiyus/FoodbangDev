@@ -5,11 +5,13 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -157,7 +159,23 @@ public class ListPackageActivity extends FoodbangAppCompatActivity
                             packageAdapter.notifyDataSetChanged();
                         }
                         else {
-                            Toast.makeText(getApplicationContext(), "Ups! Something Wrong!", Toast.LENGTH_SHORT).show();
+                            String message;
+                            try {
+                                message = new String(response.errorBody().bytes());
+
+                                Toast mtoast = Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG);
+                                mtoast.setGravity(Gravity.CENTER, 0, 0);
+
+                                TextView message_mtoast = mtoast.getView().findViewById(android.R.id.message);
+                                message_mtoast.setTextSize(19);
+
+                                mtoast.show();
+                            } catch (IOException | NullPointerException e) {
+                                e.printStackTrace();
+
+                                message = "Ups! Something Wrong!";
+                                Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+                            }
                         }
                         show_list_packages(packages);
                     }
