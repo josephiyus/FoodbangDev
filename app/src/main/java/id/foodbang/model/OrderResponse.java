@@ -3,14 +3,17 @@ package id.foodbang.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class OrderResponse {
+public class OrderResponse
+{
 
     @SerializedName("api_message")
     @Expose
     private String apiMessage;
+
     @SerializedName("api_http")
     @Expose
     private Integer apiHttp;
+
     @SerializedName("data")
     @Expose
     private OrderData data;

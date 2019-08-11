@@ -9,6 +9,7 @@ import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -24,36 +25,47 @@ import id.foodbang.engine.AppController;
 import id.foodbang.engine.interfaces.RetrofitCallback;
 import id.foodbang.engine.session.LoginSession;
 import id.foodbang.model.OrderData;
+import id.foodbang.model.OrderItem;
 import id.foodbang.model.OrderRequest;
 import id.foodbang.model.OrderResponse;
 import id.foodbang.utils.ThousandSeparator;
 import retrofit2.Response;
 
-public class OrderActivity extends AppCompatActivity {
-
+public class OrderActivity extends AppCompatActivity
+{
     @BindView(R.id.btn_submit)
     Button btnSubmit;
+
     @BindView(R.id.et_selected_package)
     TextView tvSelectedPackage;
+
     @BindView(R.id.tv_select_date)
     TextView tvSelectDate;
+
     @BindView(R.id.tv_select_time)
     TextView tvSelectTime;
+
     @BindView(R.id.et_portion)
     TextInputEditText etPortion;
+
     @BindView(R.id.et_ordering_note)
     TextInputEditText etOrderingNote;
+
     @BindView(R.id.et_ordering_email)
     TextInputEditText etOrderingEmail;
+
     @BindView(R.id.et_ordering_number)
     TextInputEditText etOrderingNumber;
+
     @BindView(R.id.et_ordering_location)
     TextInputEditText etOrderingLocation;
 
     @BindView(R.id.tv_subtotal)
     TextView tvSubtotal;
+
     @BindView(R.id.tv_total)
     TextView tvTotal;
+
     @BindView(R.id.tv_tax)
     TextView tvTax;
 
@@ -71,8 +83,11 @@ public class OrderActivity extends AppCompatActivity {
         setContentView(R.layout.activity_order);
         ButterKnife.bind(this);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Detail Pemesanan");
+        if(this.getSupportActionBar() != null)
+        {
+            this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            this.getSupportActionBar().setTitle("Detail Pemesanan");
+        }
 
         loginSession = new LoginSession(this);
 
@@ -87,7 +102,8 @@ public class OrderActivity extends AppCompatActivity {
         etOrderingNumber.setText(loginSession.getLoginSession(LoginSession.PHONE_NUMBER));
 
         final OrderRequest request = new OrderRequest();
-        request.setPackageId(package_id);
+        request.setOrder_item(new OrderItem());
+        request.getOrder_item().setPackageId(package_id);
 
         etPortion.addTextChangedListener(new TextWatcher() {
             @Override
@@ -116,51 +132,61 @@ public class OrderActivity extends AppCompatActivity {
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                if (etPortion.getText().toString().isEmpty() || etOrderingLocation.getText().toString().isEmpty() || !changeDate || !changeTime){
-                    Toast.makeText(getApplicationContext(), "Tolong lengkapi detail pesanan", Toast.LENGTH_SHORT).show();
-                }else{
-                    final int por = Integer.parseInt(etPortion.getText().toString());
-                    String date = tvSelectDate.getText().toString() + " " + tvSelectTime.getText().toString();
-                    String location = etOrderingLocation.getText().toString();
-                    String note = etOrderingNote.getText().toString();
+            public void onClick(View v)
+            {
+                if(etPortion.getText() != null && etOrderingLocation.getText() != null && etOrderingNote.getText() != null)
+                {
+                    if (etPortion.getText().toString().isEmpty() || etOrderingLocation.getText().toString().isEmpty() || !changeDate || !changeTime)
+                    {
+                        Toast.makeText(getApplicationContext(), "Tolong lengkapi detail pesanan", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        final int por = Integer.parseInt(etPortion.getText().toString());
+                        String date = tvSelectDate.getText().toString() + " " + tvSelectTime.getText().toString();
+                        String location = etOrderingLocation.getText().toString();
+                        String note = etOrderingNote.getText().toString();
 
-                    if(por < portion){
-                        Toast.makeText(getApplicationContext(), "Mohon maaf, minumum pemesanan " + portion + "porsi.", Toast.LENGTH_SHORT).show();
-                    }else{
+                        if (por < portion) {
+                            Toast.makeText(getApplicationContext(), "Mohon maaf, minumum pemesanan " + portion + "porsi.", Toast.LENGTH_SHORT).show();
+                        } else {
 
-                        request.setRequestOrderPortion(por);
-                        request.setRequestOrderDate(date);
-                        request.setRequestOrderLocation(location);
-                        request.setRequestOrderNote(note);
+                            request.getOrder_item().setRequestOrderPortion(por);
+                            request.getOrder_item().setRequestOrderDate(date);
+                            request.getOrder_item().setRequestOrderLocation(location);
+                            request.getOrder_item().setRequestOrderNote(note);
 
-                        AppController app = new AppController(new LoginSession(OrderActivity.this)
-                                .getLoginSession(LoginSession.ACCESS_TOKEN));
-                        app.order(request, new RetrofitCallback() {
-                            @Override
-                            public void onResponse(Response<?> response) {
-                                if(response.isSuccessful()){
-                                    OrderResponse orderResponse = (OrderResponse) response.body();
-                                    assert orderResponse != null;
-                                    OrderData orderData = orderResponse.getData();
+                            AppController app = new AppController(new LoginSession(OrderActivity.this)
+                                    .getLoginSession(LoginSession.ACCESS_TOKEN));
+                            app.order(request, new RetrofitCallback() {
+                                @Override
+                                public void onResponse(Response<?> response) {
+                                    if (response.isSuccessful()) {
+                                        OrderResponse orderResponse = (OrderResponse) response.body();
 
-                                    Intent intent = new Intent(getApplicationContext(), ReviewOrderActivity.class);
-                                    intent.putExtra("order_data", orderData);
-                                    intent.putExtra("package_image", package_image);
-                                    intent.putExtra("package_name", package_name);
-                                    intent.putExtra("real_price", (por * package_price));
-                                    startActivity(intent);
-                                    finish();
-                                } else {
-                                    Toast.makeText(getApplicationContext(), "Ups! Something Wrong!", Toast.LENGTH_SHORT).show();
+                                        assert orderResponse != null;
+                                        OrderData orderData = orderResponse.getData();
+
+                                        if(orderData != null) {
+                                            Intent intent = new Intent(getApplicationContext(), ReviewOrderActivity.class);
+                                            intent.putExtra("order_data", orderData);
+                                            intent.putExtra("package_image", package_image);
+                                            intent.putExtra("package_name", package_name);
+                                            intent.putExtra("real_price", (por * package_price));
+                                            startActivity(intent);
+                                            finish();
+                                        }
+                                    } else {
+                                        Toast.makeText(getApplicationContext(), "Ups! Something Wrong!", Toast.LENGTH_SHORT).show();
+                                    }
                                 }
-                            }
 
-                            @Override
-                            public void onFailure(String result) {
-                                Toast.makeText(getApplicationContext(), "Ups! Something Wrong!", Toast.LENGTH_SHORT).show();
-                            }
-                        });
+                                @Override
+                                public void onFailure(String result) {
+                                    if(result == null || result.isEmpty()) result = "Ups! Something Wrong!";
+                                    Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG).show();
+                                }
+                            });
+                        }
                     }
                 }
             }

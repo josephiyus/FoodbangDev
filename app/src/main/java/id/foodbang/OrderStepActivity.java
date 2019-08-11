@@ -25,5 +25,6 @@ public class OrderStepActivity extends AppCompatActivity {
 
         this.bookOrderStepper = super.findViewById(R.id.list_orderstep);
         this.bookOrderStepper.setAdapter(new OrderStepAdapter(this));
+        this.setTitle("Booking Status");
     }
 }

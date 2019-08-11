@@ -28,8 +28,8 @@ public class BookRequestStep extends LinearLayout {
     }
 
     private void initialize(Context context) {
-        setClipChildren( true );
-        setOrientation( VERTICAL );
+        setClipChildren(true);
+        setOrientation(VERTICAL);
 
         LayoutInflater.from(context).inflate(R.layout.step_ordertest_main, this, true);
     }

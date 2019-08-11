@@ -5,7 +5,8 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class OrderListRequest {
+public class OrderListRequest
+{
 
     @SerializedName("api_message")
     @Expose
