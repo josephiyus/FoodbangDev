@@ -18,10 +18,10 @@ import id.foodbang.model.OrderStepItem;
 import id.foodbang.orderstep.BookRequestStep;
 
 public class OrderStepAdapter extends VerticalStepperAdapter {
-    private final List<OrderStepItem> list_items;
+    private List<OrderStepItem> list_items;
     private Integer current_position;
 
-    public OrderStepAdapter(Context context, final List<OrderStepItem> list_items) {
+    public OrderStepAdapter(Context context, List<OrderStepItem> list_items) {
         super(context);
         this.list_items = list_items;
         this.current_position = 0;
@@ -30,18 +30,27 @@ public class OrderStepAdapter extends VerticalStepperAdapter {
     @NonNull
     @Override
     public CharSequence getTitle(int position) {
-        return this.list_items.get(position).getTitle();
+        if (this.list_items != null)
+            return this.list_items.get(position).getTitle();
+        else
+            return "";
     }
 
     @Nullable
     @Override
     public CharSequence getSummary(int position) {
-        return this.list_items.get(position).getSummary();
+        if (this.list_items != null)
+            return this.list_items.get(position).getSummary();
+        else
+            return "";
     }
 
     @Override
     public boolean isEditable(int position) {
-        return this.list_items.get(position).getIs_editable();
+        if (this.list_items != null)
+            return this.list_items.get(position).getIs_editable();
+        else
+            return false;
     }
 
     public void setStep(@NonNull final Integer step) {
@@ -70,12 +79,14 @@ public class OrderStepAdapter extends VerticalStepperAdapter {
 
     @Override
     public int getCount() {
-        return this.list_items.size();
+        if (this.list_items != null) return this.list_items.size();
+        else return 0;
     }
 
     @Override
     public Object getItem(int i) {
-        return this.list_items.get(i);
+        if (this.list_items != null) return this.list_items.get(i);
+        else return null;
     }
 
 }

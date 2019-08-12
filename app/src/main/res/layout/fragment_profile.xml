@@ -128,57 +128,68 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="270dp"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:layout_gravity="left"
+                    android:orientation="vertical">
 
-                    <TextView
-                        android:text="Old Password"
-                        android:gravity="left"
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="4dp"
-                        android:textSize="14sp" />
+                        android:layout_gravity="left"
+                        android:orientation="horizontal">
 
-                    <EditText
-                        android:id="@+id/input_old_password"
-                        android:layout_width="160dp"
+                        <TextView
+                            android:text="Old Password"
+                            android:gravity="left"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="4dp"
+                            android:textSize="14sp" />
+
+                        <EditText
+                            android:id="@+id/input_old_password"
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="right" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="right" />
-                </LinearLayout>
+                        android:layout_gravity="left"
+                        android:orientation="horizontal">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                        <TextView
+                            android:text="New Password"
+                            android:gravity="left"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="4dp"
+                            android:textSize="14sp" />
 
-                    <TextView
-                        android:text="New Password"
-                        android:gravity="left"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="4dp"
-                        android:textSize="14sp" />
+                        <EditText
+                            android:id="@+id/input_new_password"
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="right" />
+                    </LinearLayout>
 
-                    <EditText
-                        android:id="@+id/input_new_password"
-                        android:layout_width="160dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="right" />
                 </LinearLayout>
 
                 <Button
                     android:id="@+id/btn_save_change_pwd"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="4dp"
+                    android:layout_gravity="center_vertical"
                     android:background="@drawable/back_rectangle"
-                    android:textColor="@color/colorLightGray"
+                    android:padding="2dp"
                     android:text="Simpan"
-                    android:textSize="16dp" />
+                    android:textColor="@color/colorLightGray"
+                    android:textSize="14dp" />
 
             </LinearLayout>
 

@@ -6,13 +6,13 @@
     android:layout_width="match_parent"
     tools:context=".OrderStepActivity">
 
-    <ScrollView
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="visible"
         android:layout_alignParentTop="true">
 
-        <LinearLayout
+        <android.support.v7.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -95,7 +95,7 @@
             <com.liefery.android.vertical_stepper_view.VerticalStepperView
                 android:id="@+id/list_orderstep"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="750dp"
                 android:padding="16dp" />
 
             <Button
@@ -167,7 +167,7 @@
                 android:shadowColor="#CC527E"
                 android:background="#C51162" />
 
-        </LinearLayout>
-    </ScrollView>
+        </android.support.v7.widget.LinearLayoutCompat>
+    </android.support.v4.widget.NestedScrollView>
 
 </RelativeLayout>

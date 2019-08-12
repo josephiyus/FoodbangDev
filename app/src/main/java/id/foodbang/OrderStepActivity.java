@@ -2,7 +2,6 @@ package id.foodbang;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -36,8 +35,8 @@ public class OrderStepActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_order_step);
         ButterKnife.bind(this);
@@ -53,7 +52,8 @@ public class OrderStepActivity extends AppCompatActivity {
         this.list_items.add(new OrderStepItem("Catering Done", "", false));
 
         Intent intent = this.getIntent();
-        final OrderStepAdapter orderStepAdapter = new OrderStepAdapter(this, this.list_items);
+
+        OrderStepAdapter orderStepAdapter = new OrderStepAdapter(this, this.list_items);
 
         if (intent != null) {
             this.orderData = (OrderData) intent.getSerializableExtra("order_data");

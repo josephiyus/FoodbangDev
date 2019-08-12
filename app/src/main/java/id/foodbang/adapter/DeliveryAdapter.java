@@ -85,7 +85,7 @@ public class DeliveryAdapter extends RecyclerView.Adapter<DeliveryAdapter.ViewHo
                 OrderData itemOrderData = DeliveryAdapter.this.orderData.get(i);
 
                 if (!itemOrderData.getBookedStatus().equals("rejected")) {
-                    final Intent intent_vbook = new Intent(context, OrderStepActivity.class);
+                    Intent intent_vbook = new Intent(context, OrderStepActivity.class);
                     intent_vbook.putExtra("order_data", itemOrderData);
                     context.startActivity(intent_vbook);
                 }
