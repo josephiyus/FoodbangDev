@@ -52,7 +52,9 @@
                 android:layout_toRightOf="@+id/img_profile"
                 android:layout_toEndOf="@+id/img_profile" />
         </RelativeLayout>
+
         <LinearLayout
+            android:id="@+id/ln_profile_data"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -60,7 +62,6 @@
             android:background="@drawable/bg_rounded_gray_one"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true">
-
 
             <TextView
                 android:layout_width="wrap_content"
@@ -105,6 +106,84 @@
                 android:id="@+id/tv_phone_number"
                 android:textSize="12sp"/>
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_below="@+id/ln_profile_data"
+            android:background="@drawable/bg_rounded_gray_one"
+            android:layout_marginTop="8dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Change Password"
+                android:textStyle="bold"
+                android:padding="4dp"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:text="Old Password"
+                        android:gravity="left"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="4dp"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/input_old_password"
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="right" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:text="New Password"
+                        android:gravity="left"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="4dp"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/input_new_password"
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="right" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btn_save_change_pwd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:background="@drawable/back_rectangle"
+                    android:textColor="@color/colorLightGray"
+                    android:text="Simpan"
+                    android:textSize="16dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
         <!--<Button-->
             <!--android:layout_width="match_parent"-->
             <!--android:layout_height="wrap_content"-->

@@ -1,24 +1,34 @@
 package id.foodbang;
 
-import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
 import com.liefery.android.vertical_stepper_view.VerticalStepperView;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import id.foodbang.adapter.OrderStepAdapter;
 import id.foodbang.model.OrderData;
+import id.foodbang.model.OrderStepItem;
 
 public class OrderStepActivity extends AppCompatActivity {
-    private VerticalStepperView bookOrderStepper;
+    private final List<OrderStepItem> list_items = new ArrayList<>();
     private OrderData orderData;
+
+    @BindView(R.id.list_orderstep)
+    protected VerticalStepperView bookOrderStepper;
 
     @Override
     protected void onDestroy() {
+        this.list_items.clear();
         if (this.orderData != null) this.orderData = null;
         if (this.bookOrderStepper != null) this.bookOrderStepper = null;
 
@@ -28,17 +38,27 @@ public class OrderStepActivity extends AppCompatActivity {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
         super.onCreate(savedInstanceState, persistentState);
-        super.setContentView(R.layout.activity_order_step);
 
-        final OrderStepAdapter orderStepAdapter = new OrderStepAdapter(this);
+        setContentView(R.layout.activity_order_step);
+        ButterKnife.bind(this);
+
+        this.list_items.add(new OrderStepItem("Booking Requested", "", false));
+        this.list_items.add(new OrderStepItem("Booking Approved", "", false));
+        this.list_items.add(new OrderStepItem("DP Requested", "", false));
+        this.list_items.add(new OrderStepItem("DP Approved", "", false));
+        this.list_items.add(new OrderStepItem("Full Payment Requested", "", false));
+        this.list_items.add(new OrderStepItem("Full Payment Approved", "", false));
+        this.list_items.add(new OrderStepItem("Catering in Progress", "", false));
+        this.list_items.add(new OrderStepItem("Catering Execute Today!", "", false));
+        this.list_items.add(new OrderStepItem("Catering Done", "", false));
 
         Intent intent = this.getIntent();
-        if (intent != null) {
+        final OrderStepAdapter orderStepAdapter = new OrderStepAdapter(this, this.list_items);
 
-            //this.orderData = (OrderData) intent.getSerializableExtra("order_data");
+        if (intent != null) {
+            this.orderData = (OrderData) intent.getSerializableExtra("order_data");
 
             if (this.orderData != null) {
-                //orderStepAdapter.setStep(2);
                 TextView booking_status = this.findViewById(R.id.booking_status);
                 booking_status.setText(this.orderData.getBookedStatus());
 
@@ -53,12 +73,20 @@ public class OrderStepActivity extends AppCompatActivity {
 
         }
 
-        this.bookOrderStepper = super.findViewById(R.id.list_orderstep);
         this.bookOrderStepper.setAdapter(orderStepAdapter);
 
-        ActionBar actionBar = this.getActionBar();
+        ActionBar actionBar = this.getSupportActionBar();
         if (actionBar != null) {
-            if (orderData != null) actionBar.setTitle("Booking Status");
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setTitle("Booking Status");
         }
+
+
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        super.onBackPressed();
+        return super.onSupportNavigateUp();
     }
 }

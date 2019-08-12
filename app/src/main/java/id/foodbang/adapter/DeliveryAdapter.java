@@ -19,7 +19,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import id.foodbang.DeliveryActivity;
+import id.foodbang.OrderStepActivity;
 import id.foodbang.R;
 import id.foodbang.engine.AppController;
 import id.foodbang.engine.interfaces.RetrofitCallback;
@@ -60,6 +60,7 @@ public class DeliveryAdapter extends RecyclerView.Adapter<DeliveryAdapter.ViewHo
         viewHolder.tvOrderDate.setText(dateTime[0] + " " + dateTime[1]);
         viewHolder.tvTotalPrice.setText(RupiahFormat.getInstance().format(orderData.get(i).getTotalPrice()));
 
+
         AppController app = new AppController();
         app.getPackage(orderData.get(i).getPackageId(), new RetrofitCallback() {
             @Override
@@ -84,10 +85,8 @@ public class DeliveryAdapter extends RecyclerView.Adapter<DeliveryAdapter.ViewHo
                 OrderData itemOrderData = DeliveryAdapter.this.orderData.get(i);
 
                 if (!itemOrderData.getBookedStatus().equals("rejected")) {
-                    Intent intent_vbook = new Intent(context, DeliveryActivity.class);
-
-                    //intent_vbook.putExtra("order_data", itemOrderData);
-
+                    final Intent intent_vbook = new Intent(context, OrderStepActivity.class);
+                    intent_vbook.putExtra("order_data", itemOrderData);
                     context.startActivity(intent_vbook);
                 }
             }

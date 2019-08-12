@@ -15,9 +15,15 @@
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="m">
-        <activity android:name=".PaymentActivity"></activity>
+        <activity android:name=".PaymentActivity" />
         <activity
             android:name=".DeliveryActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".OrderStepActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".OrderTestStepActivity"
             android:theme="@style/AppTheme" />
         <activity android:name=".OTPActivity" />
         <activity android:name=".RegisterActivity" />

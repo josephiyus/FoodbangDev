@@ -9,35 +9,22 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.View;
-import android.widget.Button;
 
 import com.liefery.android.vertical_stepper_view.VerticalStepperAdapter;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import id.foodbang.R;
 import id.foodbang.model.OrderStepItem;
 import id.foodbang.orderstep.BookRequestStep;
 
 public class OrderStepAdapter extends VerticalStepperAdapter {
-    private List<OrderStepItem> list_items;
+    private final List<OrderStepItem> list_items;
     private Integer current_position;
 
-    public OrderStepAdapter(Context context) {
+    public OrderStepAdapter(Context context, final List<OrderStepItem> list_items) {
         super(context);
-        this.list_items = new ArrayList<>();
+        this.list_items = list_items;
         this.current_position = 0;
-
-        this.list_items.add(new OrderStepItem("Booking Requested", "", false));
-        this.list_items.add(new OrderStepItem("Booking Approved", "", false));
-        this.list_items.add(new OrderStepItem("DP Requested", "", false));
-        this.list_items.add(new OrderStepItem("DP Approved", "", false));
-        this.list_items.add(new OrderStepItem("Full Payment Requested", "", false));
-        this.list_items.add(new OrderStepItem("Full Payment Approved", "", false));
-        this.list_items.add(new OrderStepItem("Catering in Progress", "", false));
-        this.list_items.add(new OrderStepItem("Catering Execute Today!", "", false));
-        this.list_items.add(new OrderStepItem("Catering Done", "", false));
     }
 
     @NonNull
@@ -77,26 +64,6 @@ public class OrderStepAdapter extends VerticalStepperAdapter {
         View content = new BookRequestStep(context);
 
         this.current_position = position;
-
-        final Button actionContinue = content.findViewById(R.id.btn_next_step);
-
-        actionContinue.setEnabled(position < this.getCount() - 1);
-        actionContinue.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                OrderStepAdapter.this.next();
-            }
-        });
-
-        final Button actionBack = content.findViewById(R.id.btn_prev_step);
-
-        actionBack.setEnabled(position > 0);
-        actionBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                OrderStepAdapter.this.previous();
-            }
-        });
 
         return content;
     }

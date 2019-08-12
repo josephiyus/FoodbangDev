@@ -1,9 +1,168 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<com.liefery.android.vertical_stepper_view.VerticalStepperView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/list_orderteststep"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:clipToPadding="false"
-    android:padding="16dp"
-    android:scrollbarStyle="outsideOverlay" />
+    xmlns:tools="http://schemas.android.com/tools"
+    android:fillViewport="true"
+    tools:context=".OrderTestStepActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/back_rectangle"
+            android:gravity="center_horizontal"
+            android:padding="5dp"
+            android:layout_margin="12dp">
+
+            <TextView
+                android:text="Status Pesanan: "
+                android:textColor="@color/colorLightGray"
+                android:textSize="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/booking_status"
+                android:text="Booking Requested"
+                android:textColor="@color/colorLightGray"
+                android:textSize="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:text="Order Number: "
+                android:textSize="14dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/order_number"
+                android:text="XXXXXXX"
+                android:textSize="14dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:text="PAKET "
+                android:textSize="14dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/order_packet"
+                android:text="ABCDEFGH"
+                android:textSize="14dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <TextView
+            android:padding="8dp"
+            android:text="STATUS PESANAN"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textAlignment="center" />
+
+        <com.liefery.android.vertical_stepper_view.VerticalStepperView
+            android:id="@+id/list_orderteststep"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:padding="16dp"
+            android:scrollbarStyle="outsideOverlay" />
+
+        <Button
+            android:id="@+id/btn_bayar"
+            android:text="Saya Sudah Bayar"
+            android:textSize="14dp"
+            android:padding="3dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorLightGray"
+            android:shadowColor="#CC527E"
+            android:background="#C51162" />
+
+        <TextView
+            android:text="Derail Pesanan"
+            android:textSize="14dp"
+            android:padding="3dp"
+            android:layout_marginLeft="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/text_input_detailpesanan"
+            android:padding="5dp"
+            android:layout_margin="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:text="Rincian Pembayaran"
+            android:id="@+id/text_input_rincianpembayaran"
+            android:textSize="14dp"
+            android:padding="3dp"
+            android:layout_marginLeft="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <android.support.design.widget.TextInputEditText
+            android:padding="5dp"
+            android:layout_margin="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:text="Informasi Pembayaran"
+            android:textSize="14dp"
+            android:padding="3dp"
+            android:layout_marginLeft="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <android.support.design.widget.TextInputEditText
+            android:padding="5dp"
+            android:layout_margin="12dp"
+            android:id="@+id/text_input_infopembayaran"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/btn_bantuan"
+            android:text="Tombol Bantuan"
+            android:textSize="14dp"
+            android:padding="3dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorLightGray"
+            android:shadowColor="#CC527E"
+            android:background="#C51162" />
+
+    </LinearLayout>
+</ScrollView>
