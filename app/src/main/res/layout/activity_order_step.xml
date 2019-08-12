@@ -15,16 +15,16 @@
         <android.support.v7.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="5dp"
+            android:layout_margin="12dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:background="@drawable/back_rectangle"
-                android:gravity="center_horizontal"
-                android:padding="5dp"
-                android:layout_margin="12dp">
+                android:gravity="center_horizontal">
 
                 <TextView
                     android:text="Status Pesanan: "
@@ -95,7 +95,7 @@
             <com.liefery.android.vertical_stepper_view.VerticalStepperView
                 android:id="@+id/list_orderstep"
                 android:layout_width="match_parent"
-                android:layout_height="750dp"
+                android:layout_height="650dp"
                 android:padding="16dp" />
 
             <Button
