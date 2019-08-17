@@ -35,7 +35,6 @@ public interface UrlInterface {
     Call<Package> packages();
 
     @Headers("Content-Type:application/json")
-    //@GET(UrlService.packages)
     @HTTP(method = "POST", path = UrlService.packages, hasBody = true)
     Call<Package> packagesByParam(@Body PackageListRequest searchKey);
 
