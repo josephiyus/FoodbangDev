@@ -52,11 +52,11 @@ public class PackageAllAdapter extends RecyclerView.Adapter<PackageAllAdapter.Vi
         viewHolder.tvPackageDesc.setText(packages.get(i).getDescription());
         viewHolder.tvPackagePrice.setText("Rp. " + ThousandSeparator.createCurrency(String.valueOf(packages.get(i).getPrice())));
 
-        if (packages.get(i).getFiles() == null){
+        if (packages.get(i).getFiles() == null || packages.get(i).getFiles().length == 0){
             Picasso.with(context).load(getUriDrawable(R.drawable.no_image))
                     .transform(new RoundedTransformation(16, 0)).into(viewHolder.ivPackage);
         }else{
-            Picasso.with(context).load(packages.get(i).getFiles())
+            Picasso.with(context).load(packages.get(i).getFiles()[0])
                     .transform(new RoundedTransformation(16, 0)).into(viewHolder.ivPackage);
         }
 

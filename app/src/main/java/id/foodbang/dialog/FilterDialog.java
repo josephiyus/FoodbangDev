@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -229,11 +230,11 @@ public class FilterDialog extends AppCompatDialogFragment {
 
     private void applyCatCheckboxValue(final View view, final Integer id, final String val) {
         final CheckBox cb = view.findViewById(id);
+        cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
-        cb.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                if(cb.isChecked()){
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
                     if(packageId.indexOf(val)<0){
                         packageId.add(val);
                     }

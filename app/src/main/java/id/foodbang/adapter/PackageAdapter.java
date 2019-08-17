@@ -44,11 +44,11 @@ public class PackageAdapter extends RecyclerView.Adapter<PackageAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int i) {
-        if (packages.get(i).getFiles() == null){
+        if (packages.get(i).getFiles() == null || packages.get(i).getFiles().length == 0){
             Picasso.with(context).load(getUriDrawable(R.drawable.no_image))
                     .transform(new RoundedTransformation(4, 0)).into(viewHolder.ivPackage);
         }else {
-            Picasso.with(context).load(packages.get(i).getFiles())
+            Picasso.with(context).load(packages.get(i).getFiles()[0])
                     .transform(new RoundedTransformation(4, 0)).into(viewHolder.ivPackage);
         }
         viewHolder.tvPackageName.setText(packages.get(i).getName());

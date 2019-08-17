@@ -32,7 +32,7 @@ public class SortingDialog extends AppCompatDialogFragment {
             @Override
             public void onClick(View view) {
                 PackageSortParam packageSortParam = new PackageSortParam();
-                packageSortParam.setPrice("max");
+                packageSortParam.setPrice("2");
 
                 Map<String, Object> param = new HashMap<>();
                 param.put("sortKey", packageSortParam);
@@ -48,7 +48,7 @@ public class SortingDialog extends AppCompatDialogFragment {
             @Override
             public void onClick(View view) {
                 PackageSortParam packageSortParam = new PackageSortParam();
-                packageSortParam.setPrice("min");
+                packageSortParam.setPrice("1");
 
                 Map<String, Object> param = new HashMap<>();
                 param.put("sortKey", packageSortParam);
@@ -65,7 +65,7 @@ public class SortingDialog extends AppCompatDialogFragment {
             @Override
             public void onClick(View view) {
                 PackageSortParam packageSortParam = new PackageSortParam();
-                packageSortParam.setRating("max");
+                packageSortParam.setRating("2");
 
                 Map<String, Object> param = new HashMap<>();
                 param.put("sortKey", packageSortParam);
@@ -82,7 +82,7 @@ public class SortingDialog extends AppCompatDialogFragment {
             @Override
             public void onClick(View view) {
                 PackageSortParam packageSortParam = new PackageSortParam();
-                packageSortParam.setRating("min");
+                packageSortParam.setRating("1");
 
                 Map<String, Object> param = new HashMap<>();
                 param.put("sortKey", packageSortParam);
@@ -98,13 +98,13 @@ public class SortingDialog extends AppCompatDialogFragment {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PackageSortParam packageSortParam = new PackageSortParam();
-                packageSortParam.setPortion("near");
-
-                Map<String, Object> param = new HashMap<>();
-                param.put("sortKey", packageSortParam);
-
-                parent.parentProcess(param);
+//                PackageSortParam packageSortParam = new PackageSortParam();
+//                packageSortParam.setPortion("near");
+//
+//                Map<String, Object> param = new HashMap<>();
+//                param.put("sortKey", packageSortParam);
+//
+//                parent.parentProcess(param);
 
                 //parent.printToast();
                 dismiss();

@@ -35,7 +35,7 @@ public class PackageData {
     private String category;
     @SerializedName("files")
     @Expose
-    private String files = null;
+    private String[] files = null;
     @SerializedName("menus")
     @Expose
     private List<Menu> menus = null;
@@ -120,11 +120,11 @@ public class PackageData {
         this.menus = menus;
     }
 
-    public String getFiles() {
+    public String[] getFiles() {
         return files;
     }
 
-    public void setFiles(String files) {
+    public void setFiles(String[] files) {
         this.files = files;
     }
 }

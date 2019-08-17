@@ -40,6 +40,7 @@ public class ListPackageActivity extends FoodbangAppCompatActivity
 
     List<PackageData> packages = new ArrayList<>();
 
+    private PackageSearchParam searchKey;
     private PackageSortParam sortKey;
     private AppController app;
 
@@ -128,14 +129,10 @@ public class ListPackageActivity extends FoodbangAppCompatActivity
     @Override
     public void parentProcess(Map<String, Object> param)
     {
-        PackageSearchParam searchKey = null;
-
         if(param.get("searchKey") != null)
         {
             searchKey = (PackageSearchParam) param.get("searchKey");
-        }
-
-        if(param.get("sortKey") != null)
+        }else if(param.get("sortKey") != null)
         {
             sortKey = (PackageSortParam) param.get("sortKey");
         }

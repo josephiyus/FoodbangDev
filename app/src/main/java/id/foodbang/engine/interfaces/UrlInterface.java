@@ -1,5 +1,7 @@
 package id.foodbang.engine.interfaces;
 
+import com.google.gson.JsonObject;
+
 import id.foodbang.engine.config.UrlService;
 import id.foodbang.model.DetailPackage;
 import id.foodbang.model.LoginBody;
@@ -29,12 +31,12 @@ public interface UrlInterface {
     Call<LoginResponse> checkLogin(@Body LoginBody loginBody);
 
     @Headers("Content-Type:application/json")
-    @GET(UrlService.packages)
+    @POST(UrlService.packages)
     Call<Package> packages();
 
     @Headers("Content-Type:application/json")
     //@GET(UrlService.packages)
-    @HTTP(method = "GET", path = UrlService.packages, hasBody = true)
+    @HTTP(method = "POST", path = UrlService.packages, hasBody = true)
     Call<Package> packagesByParam(@Body PackageListRequest searchKey);
 
     @Headers("Content-Type:application/json")
