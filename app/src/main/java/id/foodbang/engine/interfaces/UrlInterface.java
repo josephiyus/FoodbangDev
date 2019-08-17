@@ -31,11 +31,11 @@ public interface UrlInterface {
     Call<LoginResponse> checkLogin(@Body LoginBody loginBody);
 
     @Headers("Content-Type:application/json")
-    @POST(UrlService.packages)
+    @GET(UrlService.packages)
     Call<Package> packages();
 
     @Headers("Content-Type:application/json")
-    @HTTP(method = "POST", path = UrlService.packages, hasBody = true)
+    @POST(UrlService.packages_search)
     Call<Package> packagesByParam(@Body PackageListRequest searchKey);
 
     @Headers("Content-Type:application/json")

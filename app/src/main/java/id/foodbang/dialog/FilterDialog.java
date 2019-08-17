@@ -192,7 +192,8 @@ public class FilterDialog extends AppCompatDialogFragment {
                     param.put("searchKey", key);
 
                     parent.parentProcess(param);
-                    dismiss();
+
+                    FilterDialog.this.dismiss();
                 }
             });
 

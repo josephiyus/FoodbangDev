@@ -104,7 +104,9 @@ public class PackageActivity extends AppCompatActivity implements Target{
                     DetailPackage detailPackage = (DetailPackage) response.body();
                     assert detailPackage != null;
                     package_id = detailPackage.get_package().getId();
-                    package_image = detailPackage.get_package().getFiles();
+                    String[] files = detailPackage.get_package().getFiles();
+                    if(files.length > 0)
+                        package_image = files[0];
                     package_name = detailPackage.get_package().getName();
                     package_price = detailPackage.get_package().getPrice();
                     portion = detailPackage.get_package().getPortion();
