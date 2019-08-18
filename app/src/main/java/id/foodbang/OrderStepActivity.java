@@ -19,7 +19,8 @@ public class OrderStepActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
+    public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState)
+    {
         super.onCreate(savedInstanceState, persistentState);
         super.setContentView(R.layout.activity_order_step);
 
