@@ -35,7 +35,7 @@ public class BookingApproveStep extends OrderStep
     @NonNull
     public Boolean isEditable()
     {
-        return false;
+        return true;
     }
 
     @Override
@@ -44,7 +44,7 @@ public class BookingApproveStep extends OrderStep
         setClipChildren(true);
         setOrientation(VERTICAL);
 
-        final View view = LayoutInflater.from(context).inflate(R.layout.step_ordertest_main, this, true);
+        final View view = LayoutInflater.from(context).inflate(R.layout.step_order_bookingapprove, this, true);
 
         final Button actionContinue = view.findViewById(R.id.btn_next_step);
         final Button actionBack = view.findViewById(R.id.btn_prev_step);

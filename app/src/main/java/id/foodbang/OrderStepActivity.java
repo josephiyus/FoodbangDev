@@ -1,5 +1,6 @@
 package id.foodbang;
 
+import android.app.ActionBar;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
@@ -26,6 +27,7 @@ public class OrderStepActivity extends AppCompatActivity {
 
         this.bookOrderStepper = super.findViewById(R.id.list_orderstep);
         this.bookOrderStepper.setAdapter(new OrderStepAdapter(this));
-        this.setTitle("Booking Status");
+        final ActionBar actionBar = this.getActionBar();
+        if(actionBar != null) actionBar.setTitle("Booking Status");
     }
 }
