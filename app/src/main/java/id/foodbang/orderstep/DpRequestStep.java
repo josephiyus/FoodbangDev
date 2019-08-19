@@ -39,13 +39,8 @@ public class DpRequestStep extends OrderStep
     }
 
     @Override
-    protected void initialize(Context context)
+    protected void onCreate(View view)
     {
-        setClipChildren(true);
-        setOrientation(VERTICAL);
-
-        final View view = LayoutInflater.from(context).inflate(R.layout.step_order_dprequest, this, true);
-
         final Button actionContinue = view.findViewById(R.id.btn_next_step);
         final Button actionBack = view.findViewById(R.id.btn_prev_step);
 

@@ -38,14 +38,10 @@ public class BookingRequestStep extends OrderStep
         return true;
     }
 
+
     @Override
-    protected void initialize(Context context)
+    protected void onCreate(View view)
     {
-        this.setClipChildren(true);
-        this.setOrientation(VERTICAL);
-
-        final View view = LayoutInflater.from(context).inflate(R.layout.step_order_bookingrequest, this, true);
-
         final Button actionContinue = view.findViewById(R.id.btn_next_step);
         final Button actionBack = view.findViewById(R.id.btn_prev_step);
 

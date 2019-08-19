@@ -5,8 +5,11 @@ import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.LinearLayout;
 
+import id.foodbang.R;
 import id.foodbang.adapter.IStepAdapter;
 
 public abstract class OrderStep extends LinearLayout implements IOrderStep
@@ -50,7 +53,17 @@ public abstract class OrderStep extends LinearLayout implements IOrderStep
         this.stepAdapter = null;
     }
 
-    protected abstract void initialize(Context context);
+    protected void initialize(Context context)
+    {
+        setClipChildren(true);
+        setOrientation(VERTICAL);
+
+        final View view = LayoutInflater.from(context).inflate(R.layout.step_order_main, this, true);
+
+        this.onCreate(view);
+    }
+
+    protected abstract void onCreate(final View view);
 
     @Nullable
     @Override

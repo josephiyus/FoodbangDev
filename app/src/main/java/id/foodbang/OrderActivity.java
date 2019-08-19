@@ -176,7 +176,7 @@ public class OrderActivity extends AppCompatActivity
                                             finish();
                                         }
                                     } else {
-                                        Toast.makeText(getApplicationContext(), "Ups! Something Wrong!", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(getApplicationContext(), response.message(), Toast.LENGTH_LONG).show();
                                     }
                                 }
 

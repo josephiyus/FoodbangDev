@@ -3,7 +3,6 @@ package id.foodbang.orderstep;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 
@@ -39,13 +38,8 @@ public class OnProgressStep extends OrderStep
     }
 
     @Override
-    protected void initialize(Context context)
+    protected void onCreate(View view)
     {
-        setClipChildren(true);
-        setOrientation(VERTICAL);
-
-        final View view = LayoutInflater.from(context).inflate(R.layout.step_order_onprogress, this, true);
-
         final Button actionContinue = view.findViewById(R.id.btn_next_step);
         final Button actionBack = view.findViewById(R.id.btn_prev_step);
 

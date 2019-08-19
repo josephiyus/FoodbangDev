@@ -49,9 +49,7 @@ public abstract class StepAdapter extends CustomVerticalStepperAdapter implement
     @Override
     public boolean isEditable(int position)
     {
-        final IOrderStep orderStep = (IOrderStep) this.getContentViews().get(position);
-        if(orderStep == null) return false;
-        else return orderStep.isEditable();
+        return super.getFocus() == position;
     }
 
     @NonNull
